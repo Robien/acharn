@@ -5,11 +5,18 @@
 int Random::generer(int min, int max)
 {
 
-    boost::mt19937 rng;
-    boost::uniform_int<> six(min, max);
-    rng.seed(std::clock);
-    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(rng, six);
-    return die();
+//    boost::mt19937 rng;
+ //   boost::uniform_int<> six(min, max);
+ //   rng.seed(std::clock);
+  //  boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(rng, six);
+  //  return die();
+
+
+
+  std::time_t now = std::time(0);
+  boost::random::mt19937 gen{static_cast<std::uint32_t>(now)};
+	int res = gen()%(max-min) + min;
+	return res;
 
 }
 int Random::genererParJoueur(int min, int max, int numero, int initialisateur) // initialisateur du joueur et numero du nombre aléatoire demandé

@@ -18,14 +18,14 @@ public:
     }
     PointeurIntelligent(T* t)
     {
-        reset(t);
+        this->reset(t);
     }
     virtual ~PointeurIntelligent()
     {
     }
     void operator=(T* p)
     {
-        reset(p);
+        this->reset(p);
     }
     operator T*()
     {
