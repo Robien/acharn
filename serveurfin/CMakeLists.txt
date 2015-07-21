@@ -7,6 +7,15 @@ SET(CMAKE_CXX_FLAGS_DEBUG  "-Wall")
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 SET(CMAKE_USE_RELATIVE_PATHS "ON")
 
+# default compilation flags
+if(NOT CMAKE_BUILD_TYPE)
+ set(CMAKE_BUILD_TYPE Release CACHE STRING
+ "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel."
+ FORCE)
+ endif(NOT CMAKE_BUILD_TYPE)
+set(CMAKE_CXX_FLAGS "-Wall ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS_DEBUG "-Werror ${CMAKE_CXX_FLAGS_DEBUG}")
+
 IF(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
    SET(CMAKE_BUILD_TYPE RelWithDebInfo)
 ENDIF(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
@@ -22,9 +31,13 @@ include(FindBoost)
 find_package(
 	Boost
 	1.39.0
-	REQUIRED filesystem thread
+	REQUIRED system filesystem thread
 )
 link_directories(${Boost_LIBRARY_DIRS})
+
+message(
+   ${Boost_INCLUDE_DIRS}
+)
 
 INCLUDE_DIRECTORIES(
    ${X11_INCLUDE_DIR}
