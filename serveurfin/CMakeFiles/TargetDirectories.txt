@@ -1,1 +1,0 @@
-/home/rguyard/acharn/mmocode/serveurfin/CMakeFiles/serveur.dir

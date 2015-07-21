@@ -1,1 +1,0 @@
-/usr/bin/c++   -O2 -g    CMakeFiles/serveur.dir/mainServeurV4.cpp.o CMakeFiles/serveur.dir/ServeurV4.cpp.o CMakeFiles/serveur.dir/Sauvegarde.cpp.o  -o serveur -rdynamic -lboost_filesystem -lboost_thread -lpthread 
