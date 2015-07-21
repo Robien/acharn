@@ -1,0 +1,43 @@
+﻿[dadu]
+password = dadu
+PointExperience = 529
+Vie = 722.299988
+VieMax = 1000
+Radiation = 400
+RadiationMax = 400
+Niveau = 2
+Vitesse = 5
+CapaCombat = 50
+CapaTir = 50
+Force = 23
+Endurance = 23
+Agilite = 23
+Initiative = 23
+Volonte = 23
+Inteligence = 23
+isconnect = false
+Texture = <<<SI-END-OF-MULTILINE-TEXT
+data/mesh/texture_chaussure.png
+data/mesh/texture_pantalon.png
+data/mesh/texture_tshirt27.png
+SI-END-OF-MULTILINE-TEXT
+
+
+[segfault]
+password = 1234
+PointExperience = 0
+Vie = 450
+VieMax = 500
+Radiation = 0
+RadiationMax = 400
+Niveau = 1
+Vitesse = 5
+CapaCombat = 50
+CapaTir = 50
+Force = 23
+Endurance = 23
+Agilite = 23
+Initiative = 23
+Volonte = 23
+Inteligence = 23
+isconnect = false

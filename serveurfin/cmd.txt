@@ -1,0 +1,1 @@
+cmake . && clear &&  /usr/bin/time -f "temps de compilation : %E" make -j$(cat /proc/cpuinfo  | grep processor | wc | sed "s/  /\n/g" | grep "[0-9]" | head -n 1) && clear && echo "Compil serveur Réussi !"

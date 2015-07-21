@@ -1,0 +1,743 @@
+#include <string>
+#include <sstream>
+#include <irrlicht.h>
+#include <irrlicht/irrString.h>
+#include "Interface.h"
+#include "Fenetre.h"
+#include "InterfaceInfo.h"
+#include "Skin.h"
+#include "Police.h"
+#include "boost/lexical_cast.hpp"
+
+using namespace std;
+using namespace irr;
+
+
+
+/*
+
+TABLE DES ID :
+1-24		-> Boutons 1 à 24 de la barre d'action
+6			-> Bouton Reprendre du menu du jeu
+100-105		-> Bouton 1 à 6 de la barre de menu
+201			-> Bouton Option du menu du jeu
+202			-> Bouton Quitter du menu du jeu
+203			-> Bouton OK de la fenêtre de Login
+666			-> Texte de Mot De Passe
+707			-> Texte de dialogue
+999			-> Texte de LOGIN
+1337		-> Bouton Envoyer du dialogue
+
+ */
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//      CONSTRUCTEUR		
+////////////////////////////////////////////////////////////////////////////////
+
+Interface::Interface(irr::scene::ISceneManager *scene,
+                     irr::video::IVideoDriver* dri,
+                     int l,
+                     int h) :lEcran(l),
+                             hEcran(h),
+                             driver(dri),
+                             sceneManager(scene) {
+
+	cout<<endl<<"///////////////////////////"<<endl;	
+	cout<<"CONSTRUCTION DE L'INTERFACE"<<endl;
+	cout<<"///////////////////////////"<<endl<<endl;
+	
+    nbbarre = 0; // ajouté par Romain : sinon ça segFault (recherche dans le tableau dont le nombre d'élément est indéfini)
+    //						Il faudrais penser a changer le tableau par un std::vector !
+    //Environement GUI et police
+    gui = sceneManager->getGUIEnvironment();
+    //	font = gui->getFont("fontlucida.png");
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Caractéristique du personnage
+    ////////////////////////////////////////////////////////////////////////////
+
+    m_VieMax = 0;
+    m_Vie = 0;
+    m_RadMax = 0;
+    m_Rad = 0;
+    m_Pseudo = new string;
+    m_Niveau = 1;
+    m_Texte = new string;
+
+
+
+    InterfaceInfo* interInf = new InterfaceInfo(dri,gui,100,hEcran,lEcran);
+    Police* mPolice = new Police("Bowman");
+    Skin* mSkin = new Skin("acharn");
+    Fenetre* fTest = new Fenetre(interInf,mSkin,irr::core::position2d<irr::s32>(200,200),L"Test",100,100);
+    
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre de Personnage
+    ////////////////////////////////////////////////////////////////////////////
+    // définition de hauteur et largeur de fenêtre
+    hFenetre = 75;
+    lFenetre = 200;
+
+    // création de la fenêtre
+    perso = gui->addWindow(core::rect<s32 > (10, // coinHautGauche X
+            36, // coinHautGauche Y
+            10 + lFenetre, // coinBasDroit X
+            36 + hFenetre), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Personnage", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    perso->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    irr::gui::IGUIButton *cloperso = perso->getCloseButton();
+    cloperso->setVisible(false);
+
+    irr::gui::IGUIImage * imageperso = gui->addImage(core::rect<s32 > (5,
+            5,
+            70,
+            70),
+            perso,
+            -1,
+            L"image perso");
+
+    //test pour Skin
+    string test1 = "data/interface/";
+    string test2 = "avatar.png";
+    irr::io::path nomimg(irr::io::path((test1 + test2).c_str()));
+
+    imageperso->setImage(dri->getTexture(nomimg));
+
+
+    // création de la zone d'affichage de texte
+    pseudoTexte = gui->addStaticText(L"pseudo", // Pseudo du personnage
+            // position du cadre par rapport au parent
+            core::rect<s32 > (75, // coinHautGauche X
+            5, // coinHautGauche Y
+            lFenetre - 5, // coinBasDroit X
+            16), // coinBasDroit Y
+            true, // vrai : affiche les bords en 3D
+            false, // vrai : retour à la ligne auto
+            perso); // parent
+
+
+    Bouton* barreVieMax;
+    barreVieMax = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (75, // coinHautGauche X
+            18, // coinHautGauche Y
+            lFenetre - 5,
+            28), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "data/interface/font.png", // fichier de l'image du bouton
+            perso, // parent
+            L"");
+    barreVieMax->getBouton()->setIsPushButton(false);
+
+    barreVie = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (75, // coinHautGauche X
+            18, // coinHautGauche Y
+            lFenetre - 5,
+            28), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "data/interface/vie.png", // fichier de l'image du bouton
+            perso, // parent
+            L"");
+    barreVie->getBouton()->setID(300);
+    barreVie->getBouton()->setIsPushButton(false);
+
+
+    Bouton* barreRadMax;
+    barreRadMax = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (75, // coinHautGauche X
+            30, // coinHautGauche Y
+            lFenetre - 5,
+            40), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "data/interface/font.png", // fichier de l'image du bouton
+            perso, // parent
+            L"");
+    barreRadMax->getBouton()->setIsPushButton(false);
+
+    barreRad = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (75, // coinHautGauche X
+            30, // coinHautGauche Y
+            lFenetre - 5,
+            40), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "data/interface/rad.png", // fichier de l'image du bouton
+            perso, // parent
+            L"");
+    barreRad->getBouton()->setID(400);
+    barreRad->getBouton()->setIsPushButton(false);
+
+
+
+
+    textecara = gui->addStaticText(L"caracteristique",
+            core::rect<s32 > (75,
+            42,
+            lFenetre - 5,
+            hFenetre - 5),
+            true,
+            false,
+            perso);
+
+
+    majCara();
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre de menu du jeu
+    ////////////////////////////////////////////////////////////////////////////
+    // définition de hauteur et largeur de fenêtre
+    hFenetre = 100;
+    lFenetre = 200;
+
+    // création de la fenêtre
+    menujeu = gui->addWindow(core::rect<s32 > ((lEcran / 2)-(lFenetre / 2), // coinHautGauche X
+            (hEcran / 2)-(hFenetre / 2), // coinHautGauche Y
+            (lEcran / 2)+(lFenetre / 2), // coinBasDroit X
+            (hEcran / 2)+(hFenetre / 2)), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Menu du Jeu", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    //	menujeu->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    menujeu->getCloseButton()->setVisible(false);
+
+    Bouton* boutonreprendre;
+    boutonreprendre = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (10, // coinHautGauche X
+            20, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            40), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "", // fichier de l'image du bouton
+            menujeu, // parent
+            L"REPRENDRE");
+    boutonreprendre->getBouton()->setID(6); // même id que le bouton qui ferme le menu
+
+    Bouton* boutonoption;
+    boutonoption = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (10, // coinHautGauche X
+            45, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            65), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "", // fichier de l'image du bouton
+            menujeu, // parent
+            L"OPTION");
+    boutonoption->getBouton()->setID(201);
+
+    Bouton* boutonquitter;
+    boutonquitter = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (10, // coinHautGauche X
+            70, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            90), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "", // fichier de l'image du bouton
+            menujeu, // parent
+            L"QUITTER");cout<<"CONSTRUCTION DE L'INTERFACE"<<endl;
+	
+    boutonquitter->getBouton()->setID(202);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre de login
+    ////////////////////////////////////////////////////////////////////////////
+    // définition de hauteur et largeur de fenêtre
+    hFenetre = 100;
+    lFenetre = 200;
+
+    // création de la fenêtre
+    menulog = gui->addWindow(core::rect<s32 > ((lEcran / 2)-(lFenetre / 2), // coinHautGauche X
+            (hEcran / 2)-(hFenetre / 2), // coinHautGauche Y
+            (lEcran / 2)+(lFenetre / 2), // coinBasDroit X
+            (hEcran / 2)+(hFenetre / 2)), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Login", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    //	menujeu->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    menulog->getCloseButton()->setVisible(false);
+
+    // création de la zone de saisie de texte
+    logTexte = gui->addEditBox(L"", // texte par defaut
+            core::rect<s32 > (10, // coinHautGauche X
+            20, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            40), // coinBasDroit Y
+            true, // vrai : affiche les bords en 3D
+            menulog); // parent
+    logTexte->setMultiLine(false);
+    logTexte->setMax(16);
+    logTexte->setID(999);
+
+    // création de la zone de saisie de texte
+    mdpTexte = gui->addEditBox(L"", // texte par defaut
+            core::rect<s32 > (10, // coinHautGauche X
+            45, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            65), // coinBasDroit Y
+            true, // vrai : affiche les bords en 3D
+            menulog); // parent
+    mdpTexte->setPasswordBox(true, L'*');
+    mdpTexte->setWordWrap(false);
+    mdpTexte->setMultiLine(false);
+    mdpTexte->setMax(16);
+    mdpTexte->setID(666);
+
+
+    Bouton* boutonlog;
+    boutonlog = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (10, // coinHautGauche X
+            70, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            90), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance
+            "", // fichier de l'image du bouton
+            menulog, // parent
+            L"OK");
+    boutonlog->getBouton()->setID(203);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre conteneur des icones de menus
+    ////////////////////////////////////////////////////////////////////////////
+    // définition de hauteur et largeur de fenêtre
+    lBarre = 6; // nombre de colone de bouton
+    hBarre = 1; // nombre de ligne de bouton
+    tBouton = 20; // taille du bouton
+    hFenetre = tBouton * hBarre + 2; // hauteur de la barre
+    lFenetre = tBouton * lBarre + 2; // la barre sera composée que de bouton
+
+    // création de la fenêtre
+    barremenu = gui->addWindow(core::rect<s32 > (0, // coinHautGauche X
+            0, // coinHautGauche Y
+            lFenetre, // coinBasDroit X
+            hFenetre), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Barre Menu", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    barremenu->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    irr::gui::IGUIButton *clomenu = barremenu->getCloseButton();
+    clomenu->setVisible(false);
+
+    Bouton * tabBoutonM[(6 * 1)];
+    int tmpIDMenu = 100;
+
+    for (int j = 1; j <= hBarre; j++) {
+        for (int i = 1; i <= lBarre; i++) {
+            // création du bouton i de la barre d'action
+            Bouton* boutonM;
+            boutonM = new Bouton(gui, // gui
+                    driver, // pilote video
+                    irr::core::rect<s32 > (2 + ((i - 1) * tBouton), // coinHautGauche X
+                    1 + ((j - 1) * tBouton), // coinHautGauche Y
+                    i*tBouton, // coinBasDroit X
+                    (j * tBouton) - 1), // coinBasDroit Y
+                    true, // vrai = visible
+                    true, // vrai = affiche la transparance
+                    "", // fichier de l'image du bouton
+                    barremenu); // parent
+            boutonM->getBouton()->setID(tmpIDMenu); // id des boutons de la barre d'action
+            tabBoutonM[(tmpIDMenu++) - 100] = boutonM;
+        }
+    }
+
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre conteneur des icones de la barre d'action
+    ////////////////////////////////////////////////////////////////////////////
+    // définition de hauteur et largeur de fenêtre
+    lBarre = 12; // nombre de colone de bouton
+    hBarre = 2; // nombre de ligne de bouton
+    tBouton = 32; // taille du bouton
+    hFenetre = tBouton * hBarre + 2; // hauteur de la barre
+    lFenetre = tBouton * lBarre + 2; // la barre sera composée que de bouton
+
+    // création de la fenêtre
+    barreaction = gui->addWindow(core::rect<s32 > ((lEcran / 2)-(lFenetre / 2), // coinHautGauche X
+            hEcran - hFenetre - 10, // coinHautGauche Y
+            (lEcran / 2)+(lFenetre / 2), // coinBasDroit X
+            hEcran - 10), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Barre d'Action", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    barreaction->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    irr::gui::IGUIButton *cloaction = barreaction->getCloseButton();
+    cloaction->setVisible(false);
+
+    Bouton * tabBoutonA[(6 * 1)];
+    int tmpID = 1;
+
+    for (int j = 1; j <= hBarre; j++) {
+        for (int i = 1; i <= lBarre; i++) {
+            // création du bouton i de la barre d'action
+            Bouton* boutonA;
+            boutonA = new Bouton(gui, // gui
+                    driver, // pilote video
+                    irr::core::rect<s32 > (2 + ((i - 1) * tBouton), // coinHautGauche X
+                    1 + ((j - 1) * tBouton), // coinHautGauche Y
+                    i*tBouton, // coinBasDroit X
+                    (j * tBouton) - 1), // coinBasDroit Y
+                    true, // vrai = visible
+                    true, // vrai = affiche la transparance
+                    "", // fichier de l'image du bouton
+                    barreaction); // parent
+            boutonA->getBouton()->setID(tmpID); // id des boutons de la barre d'action
+            tabBoutonA[tmpID++] = boutonA;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    //		Fenetre de dialogue
+    ////////////////////////////////////////////////////////////////////////////
+
+    // définition de hauteur et largeur de fenêtre
+    hFenetre = 110;
+    lFenetre = 280;
+
+    // création de la fenêtre
+    dial = gui->addWindow(core::rect<s32 > (10, // coinHautGauche X
+            hEcran - hFenetre - 42, // coinHautGauche Y
+            10 + lFenetre, // coinBasDroit X
+            hEcran - 42), // coinBasDroit Y
+            false, // vrai : les autre fenêtre ne peuvent être utilisées tant que celle-ci n'a pas été supprimée
+            L"Messagerie", // titre de la fenêtre
+            0, // parent
+            0x10000); // id de l'élément gui
+
+    // dissimulation de la barre de titre
+    dial->setDrawTitlebar(false);
+    // récupèration puis dissimulation du bouton close
+    irr::gui::IGUIButton *clo = dial->getCloseButton();
+    clo->setVisible(false);
+
+
+    // création de la zone d'affichage de texte
+    sTexte = gui->addStaticText(L"BIENVENUE DANS THE SUPER MMO !\n\n\t Utilisation du dialogue :\n\t\t entrez votre texte dans le cadre ci dessous et cliquer sur Envoyer\n\n\n", // texte par defaut
+            // position du cadre par rapport au parent
+            core::rect<s32 > (10, // coinHautGauche X
+            10, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            hFenetre - 25), // coinBasDroit Y
+            true, // vrai : affiche les bords en 3D
+            true, // vrai : retour à la ligne auto
+            dial, // parent
+            -1,
+            true);
+
+    sTexte-> setTextAlignment(irr::gui::EGUIA_UPPERLEFT, irr::gui::EGUIA_LOWERRIGHT);
+
+    /*	// création de la scrollbar*
+            sbarre = gui->addScrollBar (false,	// vrai : horizontale
+                                                                core::rect<s32>(250,
+                                                                                0,
+                                                                                260,
+                                                                                75),
+                                                                sTexte, // parent
+                                                                -2);
+	
+            sbarre->setPos(sbarre->getMax());
+     */
+    // création de la zone de saisie de texte
+    eTexte = gui->addEditBox(L"", // texte par defaut
+            core::rect<s32 > (10, // coinHautGauche X
+            hFenetre - 23, // coinHautGauche Y
+            lFenetre - 50, // coinBasDroit X
+            hFenetre - 5), // coinBasDroit Y
+            true, // vrai : affiche les bords en 3D
+            dial); // parent
+    eTexte->setMax(160);
+    eTexte->setID(707);
+
+    // création du bouton d'envoie de texte qui marche
+    envoyer = new Bouton(gui, // gui
+            driver, // pilote video
+            irr::core::rect<s32 > (lFenetre - 48, // coinHautGauche X
+            hFenetre - 23, // coinHautGauche Y
+            lFenetre - 10, // coinBasDroit X
+            hFenetre - 5), // coinBasDroit Y
+            true, // vrai = visible
+            false, // vrai = affiche la transparance si le bouton est une image
+            L"", // fichier de l'image du bouton
+            dial, // parent
+            L"Envoyer"); // texte du bouton
+    envoyer->getBouton()->setID(1337);
+
+
+
+
+	cout<<endl<<"///////////////////////////"<<endl;	
+	cout<<"L'INTERFACE EST CONSTUITE !"<<endl;
+	cout<<"///////////////////////////"<<endl<<endl;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//      DESTRUCTEUR		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Interface::~Interface() {
+    delete m_Pseudo;
+    delete m_Texte;
+    delete envoyer;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+//      FONCTION
+////////////////////////////////////////////////////////////////////////////////
+
+void Interface::draw()
+// dessine l'écran d'interface
+{
+    gui->drawAll();
+}
+
+////////////////////////////////////////////////////
+
+bool Interface::focusFenetre(irr::core::position2d<signed int> Coords)
+// vrai si la souris est sur une fenetre
+{
+    irr::core::rect<signed int> vectF[3];
+    bool focus = false;
+
+    vectF[0] = barremenu->getAbsoluteClippingRect();
+    vectF[1] = perso->getAbsoluteClippingRect();
+    vectF[2] = dial->getAbsoluteClippingRect();
+
+    for (int i = 0; (i < 3 && !focus); i++) {
+        focus = (vectF[i].UpperLeftCorner.X <= Coords.X &&
+                vectF[i].UpperLeftCorner.Y <= Coords.Y &&
+                vectF[i].LowerRightCorner.X >= Coords.X &&
+                vectF[i].LowerRightCorner.Y >= Coords.Y);
+    }
+    return focus;
+}
+
+
+
+////////////////////////////////////////////////////
+//		SET
+////////////////////////////////////////////////////
+
+void Interface::setPseudo(string ps)
+// initialisation du pseudo
+{
+    *m_Pseudo = ps;
+    majCara();
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setNiveau(int n)
+// initialisation du niveau
+{
+    m_Niveau = n;
+    majCara();
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setDialogue(string msg)
+// initialisation de l'affichage du dialogue
+{
+    majDial(msg);
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setMessageConsole(string msg)
+// initialisation de l'affichage du dialogue
+{
+    eTexte->setText(core::stringw(msg.c_str()).c_str());
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setVieMax(int vm) {
+    if (vm > 0) {
+        m_VieMax = vm;
+        majCara();
+    } else
+        cout << "Vie max inferieur a 0" << endl;
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setVie(int v)
+{
+    //refait par Romain pour que les dégats trop violents mette la vie à 0 au lieu d'être ignoré, pareil pour les gains trop grand
+    //faut faire pareil avec les rads
+    if (v < 0)
+    {
+        v = 0;
+    }
+    else if (v > m_VieMax)
+    {
+        v = m_VieMax;
+    }
+    m_Vie = v;
+    majCara();
+
+}
+
+////////////////////////////////////////////////////
+
+void Interface::setRadMax(int rm) {
+    if (rm > 0) {
+        m_RadMax = rm;
+        majCara();
+    } else
+        cout << "Radiation max inferieur a 0" << endl;
+}
+
+void Interface::setRad(int r) {
+    if (r >= 0 && r <= m_RadMax) {
+        m_Rad = r;
+        majCara();
+    } else
+        cout << "Radiation inferieur a 0 ou superieur a Radiation max" << endl;
+}
+
+
+////////////////////////////////////////////////////
+//		GET
+////////////////////////////////////////////////////
+
+string Interface::getDialogue()
+// récupération de la saisie dialogue
+{
+    core::stringw msgSaisie;
+    string msgEnvoye;
+
+    msgSaisie = eTexte->getText();
+    // conversion en string
+
+    for (int i = 0; msgSaisie[i] != '\0'; i++) {
+        msgEnvoye += (char) msgSaisie[i];
+    }
+    return msgEnvoye;
+
+}
+
+////////////////////////////////////////////////////
+//		MAJ
+////////////////////////////////////////////////////
+
+void Interface::majCara()
+// mise à jour de la fenetre personnage
+{
+    // maj de la case pseudo
+    // récupération du pseudo
+    string msgPseudo = *m_Pseudo;
+    // conversion puis envoie
+    pseudoTexte->setText(core::stringw(msgPseudo.c_str()).c_str());
+    // maj de la case caractéristique
+    // récupération des caractéristiques
+    string msgCara = "Vie : ";
+    msgCara += convstr(m_Vie) + "/";
+    msgCara += convstr(m_VieMax) + "\nRad : ";
+    msgCara += convstr(m_Rad) + "/";
+    msgCara += convstr(m_RadMax) + "\nNiveau : ";
+    msgCara += convstr(m_Niveau);
+    // conversion puis envoie
+    textecara->setText(core::stringw(msgCara.c_str()).c_str());
+
+    irr::s32 ratioVie = (irr::s32)((signed int) ((((float) m_Vie) / ((float) m_VieMax))*120));
+    barreVie->getBouton()->setRelativePosition(irr::core::rect<s32 > (75,
+            18,
+            75 + ratioVie,
+            28));
+
+    irr::s32 ratioRad = (irr::s32)((signed int) ((((float) m_Rad) / ((float) m_RadMax))*120));
+    barreRad->getBouton()->setRelativePosition(irr::core::rect<s32 > (75,
+            30,
+            75 + ratioRad,
+            40));
+}
+
+
+////////////////////////////////////////////////////
+
+void Interface::majDial(string msg)
+// maj de l'affichage du texte de dialogue
+{
+    // affiche la ligne saisie que si elle n'est pas vide
+    if (msg != "") {
+        // récupération du texte avec création d'en_tete "Pseudo : "
+        *m_Texte += "\n",
+                *m_Texte += msg;
+        // conversion puis envoie du texte
+        sTexte->setText(core::stringw(m_Texte->c_str()).c_str());
+    }
+
+}
+
+////////////////////////////////////////////////////
+
+bool Interface::boutonEnvoyerActived()
+// vérifie si on clic sur le bouton envoyer de la fenetre de dialogue
+{
+    return (envoyer->isActived());
+}
+
+////////////////////////////////////////////////////
+
+int Interface::evene() {
+    int id = -1;
+    for (int i = 0; i < nbbarre; i++) {
+        if (barre[i]->isActived()) id = i;
+    }
+    return id;
+}
+
+////////////////////////////////////////////////////
+
+std::string Interface::convstr(int nb)//convert en string un int
+{
+    return boost::lexical_cast<std::string > (nb);
+}

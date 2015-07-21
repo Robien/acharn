@@ -1,0 +1,686 @@
+/*
+ * Jeu.cpp sans graphique
+ *
+ *  Created on: 19 juil. 2010
+ *      Author: romain
+ */
+
+#include "Jeu.h"
+#include "../include/PersoManager.h"
+#include "PersoJoueur.h"
+
+
+
+
+//#define PI 3.141592653589
+#define PI 3.14159265358979323846264338327950288419716939937510 // à peu de chose près quoi
+
+//réseau -> frequence d'envois des coordonnée
+#define FREQ_ENVOI 10 		// nombres de frames/deplacement a attendre avant d'envoyer
+#define FACTEUR_ENVOI 10 	// ratio d'effet des courbes sur l'envoi
+
+//deplacement du personage principal
+#define VITESSE_DEPLACEMENT 100
+#define VITESSE_SANS_GLISSEMENT 100 //vitesse du mesh pour laquelle l'anim de déplacement colle bien
+
+//interface
+#define FENEL 800
+#define FENEH 600
+#define FULL_SCREEN false
+
+
+using namespace irr;
+using namespace std;
+using namespace gui;
+
+
+
+
+Jeu::Jeu(int argc,char **argv, Client * c)
+{
+	_argc = argc;
+	_argv = argv;
+	statut = 0;
+	selector = 0;
+	c1 = c;
+}
+
+Jeu::~Jeu()
+{
+}
+
+void Jeu::run()
+{
+
+	video::E_DRIVER_TYPE driverType;
+
+
+		int i = 6; // no graphique
+
+		switch(i)
+		{
+			case 1: driverType = video::EDT_DIRECT3D9;break;
+			case 2: driverType = video::EDT_DIRECT3D8;break;
+			case 3: driverType = video::EDT_OPENGL;   break;
+			case 4: driverType = video::EDT_SOFTWARE; break;
+			case 5: driverType = video::EDT_BURNINGSVIDEO;break;
+			case 6: driverType = video::EDT_NULL;     break;
+			default: exit(0);
+		}
+
+
+
+
+
+	// create device
+	cout << " Si ça plante ici c'est la faute de Jo" << endl;
+	receiver.reset(new EventReceiver(statut, tempsanim, camera, joueur_sauv, interp));
+
+
+
+	cout << " Si ça plante ici c'est la faute d'irrlicht" << endl;
+	device.reset(createDevice(driverType,
+			core::dimension2d<u32>(FENEL, FENEH), 16, FULL_SCREEN, true, false, receiver.get()));
+
+	if (device == 0)
+		exit (0); // could not create selected driver.
+	receiver->setDevice(device.get());
+	PersoManager::get()->setDevice(device.get());
+
+	//interface
+	//
+	irr::scene::ISceneManager *sceneManager = device->getSceneManager ();
+	cout << " Si ça plante ici c'est la faute de Céphise ... ou du serveur (donc de Jo !)" << endl;
+
+
+	c1->connexion();
+	c1->information();
+	if (not c1->getconnect()) { std::cout << "problème de connexion !" << std::endl; exit(0);}
+
+	video::IVideoDriver* driver = device->getVideoDriver();
+	cout << " Si ça plante ici c'est la faute de Jo" << endl;
+	interp.reset(new Interface(sceneManager,driver,FENEL,FENEH));
+	interp->setVieMax(2000);
+	interp->setVie(1100);
+	interp->setRadMax(3500);
+	interp->setRad(2050);
+	interp->setPseudo("Jacky <3");
+	interp->setNiveau(2);
+
+
+	cout << " Si ça plante ici c'est la faute de Romain ... mais ça c'est pas possible" << endl;
+
+
+
+
+
+	//scene::ISceneManager*
+	smgr = device->getSceneManager();
+
+	//	device->getFileSystem()->addZipFileArchive("../media/map-20kdm2.pk3");
+
+	//scene::IAnimatedMesh* q3levelmesh = smgr->getMesh("mesh/arene.b3d");
+	scene::IMeshSceneNode* q3node = 0;
+	q3node = smgr->addMeshSceneNode(smgr->getMesh("mesh/arene.b3d"),
+			0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+
+	//	q3node->setMaterialType(video::EMT_TRANSPARENT_ALPHA_CHANNEL);
+	scene::ITriangleSelector* selector_sauv = 0;
+
+	if (q3node)
+	{
+		//q3node->setPosition(core::vector3df(-1350,-130,-1400));
+		q3node->setPosition(core::vector3df(0,0,0));
+		q3node->setScale(core::vector3df(100,100,100));
+		selector_sauv = selector = smgr->createOctreeTriangleSelector(
+				q3node->getMesh(), q3node, 128);
+		q3node->setTriangleSelector(selector);
+	}
+
+
+
+
+	camera.reset(smgr->addCameraSceneNode(0, core::vector3df(0,30,-40), core::vector3df(0,5,0)));
+
+
+	camera->setPosition(core::vector3df(00,20,-00));
+
+	if (selector && false)
+	{
+		scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
+				selector, camera.get(), core::vector3df(30,40,30),
+				core::vector3df(0,-10,0), core::vector3df(0,30,0));
+		//	selector->drop(); // As soon as we're done with the selector, drop it.
+		camera->addAnimator(anim);
+		anim->drop();  // And likewise, drop the animator when we're done referring to it.
+	}
+
+	// lighting them, and a billboard for drawing where we found an intersection.
+
+	// First, let's get rid of the mouse cursor.  We'll use a billboard to show
+	// what we're looking at.
+
+	// Add the billboard.
+	scene::IBillboardSceneNode * bill = smgr->addBillboardSceneNode();
+	bill->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR );
+	bill->setMaterialTexture(0, driver->getTexture("../media/particle.bmp"));
+	bill->setMaterialFlag(video::EMF_LIGHTING, false);
+	bill->setMaterialFlag(video::EMF_ZBUFFER, false);
+	bill->setSize(core::dimension2d<f32>(00.0f, 00.0f));//20,20
+	bill->setID(ID_IsNotPickable); // This ensures that we don't accidentally ray-pick it
+
+	/* Add 3 animated hominids, which we can pick using a ray-triangle intersection.
+		They all animate quite slowly, to make it easier to see that accurate triangle
+		selection is being performed. */
+	scene::IAnimatedMeshSceneNode* node = 0;
+
+
+
+	scene::ISceneNode* nodea = 0;
+
+
+
+	// create light
+
+	nodea = smgr->addLightSceneNode(0, core::vector3df(0,0,0),
+			video::SColorf(1.0f, 0.6f, 0.7f, 1.0f), 8000000.0f);
+	scene::ISceneNodeAnimator* anim = 0;
+	//	nodea->setRotation(core::vector3df(45,45,45));
+	anim = smgr->createFlyCircleAnimator (core::vector3df(0,2500,0),10500.0f);
+	nodea->addAnimator(anim);
+	anim->drop();
+
+	// attach billboard to light
+
+	nodea = smgr->addBillboardSceneNode(nodea, core::dimension2d<f32>(500, 500));
+	nodea->setMaterialFlag(video::EMF_LIGHTING, false);
+	nodea->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
+	nodea->setMaterialTexture(0, driver->getTexture("../media/particlewhite.bmp"));
+
+
+	video::SMaterial material;
+	boost::shared_ptr<PersoJoueur> joueur(new PersoJoueur (device.get()));
+	joueur_sauv.reset(joueur.get());
+	joueur->afficher(0,566,-7);
+	node_sauv.reset(joueur->getNode());
+	node_sauv->addChild(camera.get());
+	node_sauv->setID(ID_IsNotPickable);
+	if (selector_sauv)
+	{
+		scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
+				selector_sauv, node_sauv.get(), core::vector3df(30,60,30),
+				core::vector3df(0,-10,0), core::vector3df(0,-07,0));
+		selector_sauv->drop(); // As soon as we're done with the selector, drop it.
+		node_sauv->addAnimator(anim);
+		anim->drop();  // And likewise, drop the animator when we're done referring to it.
+	}
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/*
+		// And this B3D file uses skinned skeletal animation.
+		node_pnj = node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../media/ninja.b3d"),
+							0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+		//node->setScale(core::vector3df(10, 10, 10));
+	//	node->setPosition(core::vector3df(-70,-66,-60));
+		node->setPosition(core::vector3df(0,-66,-7));
+		node->setRotation(core::vector3df(0,00,00));
+		//node->setAnimationSpeed(20.f);
+		node->getMaterial(0).NormalizeNormals = true;
+		// Just do the same as we did above.
+		selector = smgr->createTriangleSelector(node);
+		node->setTriangleSelector(selector);
+	node->setID(ID_IsNotPickable);
+	//node->setMD2Animation(scene::EMAT_RUN);
+	                node->setFrameLoop(206, 250);
+	                node->setAnimationSpeed(15);
+
+
+
+
+	  // add shadow
+	       node->addShadowVolumeSceneNode();
+	        smgr->setShadowColor(video::SColor(150,0,0,0));
+
+	        // make the model a little bit bigger and normalize its normals
+	        // because of the scaling, for correct lighting
+	        node->setScale(core::vector3df(10,10,10));
+	        node->setMaterialFlag(video::EMF_NORMALIZE_NORMALS, true);
+	  //  pthread_t thread;// Création du thread
+	   // pthread_create(&thread, NULL, maFonction, NULL);// lance la fonction en paralèle avec les paramètres ... NULL .... (pour le programme va surement faloir metre un pointeur sur une structure qui auras tout ce qu'on veux partager entre les prosessus
+	 */
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// And this B3D file uses skinned skeletal animation.
+	/*
+		 scene::IAnimatedMeshSceneNode* pont = smgr->addAnimatedMeshSceneNode(smgr->getMesh("mesh/pont.b3d"),
+							0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+		//node->setScale(core::vector3df(10, 10, 10));
+	//	node->setPosition(core::vector3df(-70,-66,-60));
+		pont->setPosition(core::vector3df(0,-45,-7));
+		pont->setRotation(core::vector3df(0,00,00));
+		//node->setAnimationSpeed(20.f);
+		pont->getMaterial(0).NormalizeNormals = true;
+		// Just do the same as we did above.
+	//pont->setID(ID_IsNotPickable);
+	//pont->setID(IDFlag_IsPickable);
+	//node->setMD2Animation(scene::EMAT_RUN);
+	         //       node->setFrameLoop(206, 250);
+	           //     node->setAnimationSpeed(15);
+
+
+
+
+	  // add shadow
+	       pont->addShadowVolumeSceneNode();
+	        smgr->setShadowColor(video::SColor(150,0,0,0));
+
+	        // make the model a little bit bigger and normalize its normals
+	        // because of the scaling, for correct lighting
+	        pont->setScale(core::vector3df(10,10,10));
+		pont->setMaterialFlag(video::EMF_NORMALIZE_NORMALS, true);
+	//	pont->setMaterialType(video::EMT_NORMAL_MAP_SOLID);
+		video::ITexture* pontNormalMap = driver->getTexture("mesh/uv_bois_pont.tga.jpg");
+		if (pontNormalMap)
+		{
+			driver->makeNormalMapTexture(pontNormalMap, 20.0f);
+			pont->setMaterialTexture(1, pontNormalMap);
+			pont->setMaterialType(video::EMT_NORMAL_MAP_SOLID);
+
+		}
+
+	//////////////////////////////////////////////////////////////
+		 scene::IAnimatedMeshSceneNode* tree = smgr->addAnimatedMeshSceneNode(smgr->getMesh("mesh/tree.b3d"),
+							0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+		//node->setScale(core::vector3df(10, 10, 10));
+	//	node->setPosition(core::vector3df(-70,-66,-60));
+		tree->setPosition(core::vector3df(0,-65,-90));
+		tree->setRotation(core::vector3df(0,00,00));
+		//node->setAnimationSpeed(20.f);
+		tree->getMaterial(0).NormalizeNormals = true;
+		// Just do the same as we did above.
+	//pont->setID(ID_IsNotPickable);
+	//pont->setID(IDFlag_IsPickable);
+	//node->setMD2Animation(scene::EMAT_RUN);
+	         //       node->setFrameLoop(206, 250);
+	           //     node->setAnimationSpeed(15);
+
+
+
+
+	  // add shadow
+	       tree->addShadowVolumeSceneNode();
+	        smgr->setShadowColor(video::SColor(150,0,0,0));
+
+	        // make the model a little bit bigger and normalize its normals
+	        // because of the scaling, for correct lighting
+	        tree->setScale(core::vector3df(10,10,10));
+
+			tree->setMaterialType(video::EMT_TRANSPARENT_ALPHA_CHANNEL);
+
+					//  pthread_t thread;// Création du thread
+	   // pthread_create(&thread, NULL, maFonction, NULL);// lance la fonction en paralèle avec les paramètres ... NULL .... (pour le programme va surement faloir metre un pointeur sur une structure qui auras tout ce qu'on veux partager entre les prosessus
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 */
+
+
+
+
+
+	// create light
+
+	nodea = smgr->addLightSceneNode(0, core::vector3df(0,0,0),
+			video::SColorf(1.0f, 0.6f, 0.7f, 1.0f), 000.0f);
+	//scene::ISceneNode* mainDuPerso = node_sauv->getJointNode("hand.L");
+	//mainDuPerso->addChild(nodea);
+	q3node->addChild(nodea);
+	//mainDuPerso->setScale(core::vector3df(0.1,0.1,0.1));
+	anim = smgr->createFlyCircleAnimator (core::vector3df(0,7,0),7.0f, 0.004f);
+	nodea->addAnimator(anim);
+	anim->drop();
+
+	// attach billboard to light
+
+	nodea = smgr->addBillboardSceneNode(nodea, core::dimension2d<f32>(20, 20));
+	nodea->setMaterialFlag(video::EMF_LIGHTING, false);
+	nodea->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
+	nodea->setMaterialTexture(0, driver->getTexture("../media/particlewhite.bmp"));
+
+	// add particle system
+	scene::IParticleSystemSceneNode* ps =
+			smgr->addParticleSystemSceneNode(false, nodea);
+
+	// create and set emitter
+	scene::IParticleEmitter* em = ps->createBoxEmitter(
+			core::aabbox3d<f32>(-1,0,-1,1,0.33f,1),
+			core::vector3df(0.0f,0.03f,0.0f),
+			80,100,
+			video::SColor(0,255,255,255), video::SColor(0,255,255,255),
+			400,1100);
+	em->setMinStartSize(core::dimension2d<f32>(30.0f, 40.0f));
+	em->setMaxStartSize(core::dimension2d<f32>(30.0f, 40.0f));
+
+	ps->setEmitter(em);
+	em->drop();
+
+	// create and set affector
+	scene::IParticleAffector* paf = ps->createFadeOutParticleAffector();
+	ps->addAffector(paf);
+	paf->drop();
+
+	// adjust some material settings
+	ps->setMaterialFlag(video::EMF_LIGHTING, false);
+	ps->setMaterialFlag(video::EMF_ZWRITE_ENABLE, false);
+	ps->setMaterialTexture(0, driver->getTexture("../media/fireball.bmp"));
+	ps->setMaterialType(video::EMT_TRANSPARENT_VERTEX_ALPHA);
+
+
+
+
+
+
+	int tmpstatut = statut = 0;
+
+
+	selector->drop();
+
+	material.setTexture(0, 0);
+	material.Lighting = false;
+
+	// Add a light, so that the unselected nodes aren't completely dark.
+	//	scene::ILightSceneNode * light = smgr->addLightSceneNode(0, core::vector3df(-60,100,400),
+	//		video::SColorf(1.0f,1.0f,1.0f,1.0f), 600000.0f);
+	//	light->setID(ID_IsNotPickable); // Make it an invalid target for selection.
+
+	// Remember which scene node is highlighted
+	scene::ISceneNode* highlightedSceneNode = 0;
+	scene::ISceneCollisionManager* collMan = smgr->getSceneCollisionManager();
+	int lastFPS = -1;
+	u32 then = device->getTimer()->getTime();
+	const f32 MOVEMENT_SPEED = 25.f;
+
+
+
+	node_sauv->setJointMode(irr::scene::EJUOR_CONTROL); // To write positions to the mesh on render
+
+
+	int z=0;//pas pour le fun
+	core::vector3df ancienPos;
+	ancienPos.X = 0;
+	ancienPos.Y = 0;
+	ancienPos.Z = 0;
+	bool deplace = false;
+	bool ancienDeplace = true;
+	bool sensAvant = true;
+	bool envoi_mess = false;
+	bool tourne = false;
+	bool ancienTourne = true;
+	float tempsAvantEnvoi = FREQ_ENVOI;
+	receiver->activate();
+	while(device->run())
+
+		if (device->isWindowActive()) //la boucle "infini"
+		{
+			receiver->maj_cam();
+			//interface
+
+			//test
+
+			// Work out a frame delta time.
+			const u32 now = device->getTimer()->getTime();
+			const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
+			then = now;
+
+			//fin test
+			camera->setTarget(node_sauv->getPosition());
+
+
+			//ninja3.tourner_rel(0,0,1);
+			//ninja2.calcul_position(frameDeltaTime);
+			driver->beginScene(true, true, 0);
+
+
+
+
+			node_sauv->animateJoints();
+
+			//scene::ISceneNode* hand=node_sauv->getJointNode("hand.L");
+			//                hand->addChild(ninja4.getNode());
+
+
+
+			//scene::ISceneNode* mainDuPerso = node_sauv->getJointNode("hand.L");
+			//mainDuPerso->setParent(ninja3.getNode());
+			//ninja2.teleport(mainDuPerso->getPosition().X,mainDuPerso->getPosition().Y,mainDuPerso->getPosition().Z);
+			//std::cout<<mainDuPerso->getPosition().X << std::endl;
+
+			//ninja2.getNode()->getXJointNode("hand.L")->setParent(ninja4.getNode());
+
+
+
+			smgr->drawAll();
+			/*
+			// Unlight any currently highlighted scene node
+			if (highlightedSceneNode)
+			{
+				highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, true);
+				highlightedSceneNode = 0;
+			}
+
+			// All intersections in this example are done with a ray cast out from the camera to
+			// a distance of 1000.  You can easily modify this to check (e.g.) a bullet
+			// trajectory or a sword's position, or create a ray from a mouse click position using
+			// ISceneCollisionManager::getRayFromScreenCoordinates()
+			core::line3d<f32> ray;
+			ray.start = camera->getPosition();
+			ray.end = ray.start + (camera->getTarget() - ray.start).normalize() * 1000.0f;
+
+			// Tracks the current intersection point with the level or a mesh
+			core::vector3df intersection;
+			// Used to show with triangle has been hit
+			core::triangle3df hitTriangle;
+
+			// This call is all you need to perform ray/triangle collision on every scene node
+			// that has a triangle selector, including the Quake level mesh.  It finds the nearest
+			// collision point/triangle, and returns the scene node containing that point.
+			// Irrlicht provides other types of selection, including ray/triangle selector,
+			// ray/box and ellipse/triangle selector, plus associated helpers.
+			// See the methods of ISceneCollisionManager
+			scene::ISceneNode * selectedSceneNode =
+				collMan->getSceneNodeAndCollisionPointFromRay(
+						ray,
+						intersection, // This will be the position of the collision
+						hitTriangle, // This will be the triangle hit in the collision
+						IDFlag_IsPickable, // This ensures that only nodes that we have
+								// set up to be pickable are considered
+						0); // Check the entire scene (this is actually the implicit default)
+
+			// If the ray hit anything, move the billboard to the collision position
+			// and draw the triangle that was hit.
+			if(selectedSceneNode)
+			{
+				bill->setPosition(intersection);
+
+				// We need to reset the transform before doing our own rendering.
+				driver->setTransform(video::ETS_WORLD, core::matrix4());
+				driver->setMaterial(material);
+			//	driver->draw3DTriangle(hitTriangle, video::SColor(0,255,0,0));
+
+				// We can check the flags for the scene node that was hit to see if it should be
+				// highlighted. The animated nodes can be highlighted, but not the Quake level mesh
+				if((selectedSceneNode->getID() & IDFlag_IsHighlightable) == IDFlag_IsHighlightable)
+				{
+					highlightedSceneNode = selectedSceneNode;
+
+					// Highlighting in this case means turning lighting OFF for this node,
+					// which means that it will be drawn with full brightness.
+					highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, false);
+				}
+			}
+			 */
+			// We're all done drawing, so end the scene.
+			//	driver->endScene();
+
+			//gestion des anims ... version avant l'objet -.-
+			/* if (statut == 0 && statut != tmpstatut)
+	{
+	                node_sauv->setFrameLoop(0, 45);
+	                node_sauv->setAnimationSpeed(50);
+	}
+	else if (statut ==1 && statut != tmpstatut)
+	{
+	//std::cout<<tempsanim<<std::endl;
+	                node_sauv->setFrameLoop(0, 45);
+	                node_sauv->setAnimationSpeed(50);
+	}
+	else if (statut ==2 && statut != tmpstatut)
+	{
+	//std::cout<<tempsanim<<std::endl;
+	                node_sauv->setFrameLoop(0, 45);
+	                node_sauv->setAnimationSpeed(50);
+	}
+	tmpstatut = statut;
+			 */
+			c1->calculReception(frameDeltaTime);
+
+
+
+			tempsanim -= frameDeltaTime;
+			if (tempsanim < 0)
+			{statut = 0;}
+			core::vector3df nodePosition = node_sauv->getPosition();
+			core::vector3df noderot = node_sauv->getRotation();
+			deplace = false;
+			tourne = false;
+			if(receiver->IsKeyDown(irr::KEY_KEY_D))
+			{
+				//joueur->tourner_rel(0,200 * frameDeltaTime,0);
+				noderot.Y += 200 * frameDeltaTime;
+				tourne = true;
+			}
+			//
+			if(receiver->IsKeyDown(irr::KEY_KEY_Q))
+			{
+				//joueur->tourner_rel(0,-200 * frameDeltaTime,0);
+				noderot.Y -= 200 * frameDeltaTime;
+				tourne = true;
+			}
+			//
+			if(receiver->IsKeyDown(irr::KEY_KEY_Z))
+			{
+				sensAvant = false;
+				deplace = true;
+				tourne = false;
+				nodePosition.Z -= (VITESSE_DEPLACEMENT * frameDeltaTime)*cos(noderot.Y*PI/180);
+				nodePosition.X -= (VITESSE_DEPLACEMENT * frameDeltaTime)*sin(noderot.Y*PI/180);
+				//	joueur.teleport_rel(- (VITESSE_DEPLACEMENT * frameDeltaTime)*sin(noderot.Y*PI/180),- (VITESSE_DEPLACEMENT * frameDeltaTime)*cos(noderot.Y*PI/180),0);
+				tempsAvantEnvoi -= 200 * frameDeltaTime;
+			}
+			if(receiver->IsKeyDown(irr::KEY_KEY_A))
+			{
+				sensAvant = true;
+				deplace = true;
+				tourne = false;
+				nodePosition.X -= (VITESSE_DEPLACEMENT * frameDeltaTime)*cos(-noderot.Y*PI/180);
+				nodePosition.Z -= (VITESSE_DEPLACEMENT * frameDeltaTime)*sin(-noderot.Y*PI/180);
+				tempsAvantEnvoi -= 200 * frameDeltaTime;
+			}
+			if(receiver->IsKeyDown(irr::KEY_KEY_E))
+			{
+				sensAvant = true;
+				deplace = true;
+				tourne = false;
+				nodePosition.X += (VITESSE_DEPLACEMENT * frameDeltaTime)*cos(-noderot.Y*PI/180);
+				nodePosition.Z += (VITESSE_DEPLACEMENT * frameDeltaTime)*sin(-noderot.Y*PI/180);
+				tempsAvantEnvoi -= 200 * frameDeltaTime;
+			}
+			if(receiver->IsKeyDown(irr::KEY_KEY_S))
+			{
+				sensAvant = true;
+				deplace = true;
+				tourne = false;
+				nodePosition.Z += (VITESSE_DEPLACEMENT * frameDeltaTime)*cos(noderot.Y*PI/180);
+				nodePosition.X += (VITESSE_DEPLACEMENT * frameDeltaTime)*sin(noderot.Y*PI/180);
+				tempsAvantEnvoi -= 200 * frameDeltaTime;
+			}
+			if (deplace && not ancienDeplace)
+			{
+				node_sauv->setFrameLoop(10, 50);
+				if (not sensAvant) // le mesh est a l'envers :-(
+				{
+					node_sauv->setAnimationSpeed(50*VITESSE_DEPLACEMENT/VITESSE_SANS_GLISSEMENT);
+				}
+				else
+				{
+					node_sauv->setAnimationSpeed(-50*VITESSE_DEPLACEMENT/VITESSE_SANS_GLISSEMENT);
+				}
+
+			}
+			else if ((not deplace && ancienDeplace) || (not tourne && ancienTourne))
+			{
+				node_sauv->setFrameLoop(100,100);
+				node_sauv->setAnimationSpeed(1);
+
+			}
+			else if (tourne && not ancienTourne)
+			{
+				node_sauv->setFrameLoop(60, 75);
+				node_sauv->setAnimationSpeed(18*VITESSE_DEPLACEMENT/VITESSE_SANS_GLISSEMENT);
+			}
+			ancienDeplace = deplace;
+			ancienTourne = tourne;
+			node_sauv->setPosition(nodePosition);
+			node_sauv->setRotation(noderot);
+			if (node_sauv->getPosition().X != ancienPos.X || node_sauv->getPosition().Y != ancienPos.Y || node_sauv->getPosition().Z != ancienPos.Z)
+			{
+				c1->mouvement(node_sauv->getPosition().X, node_sauv->getPosition().Y, node_sauv->getPosition().Z);
+				ancienPos = node_sauv->getPosition();
+			}
+			int fps = driver->getFPS();
+			//interface
+			interp->draw();
+			string msg;
+			if(receiver->IsKeyDown(irr::KEY_RETURN) && !envoi_mess)
+			{
+				msg =interp->getDialogue();
+				envoi_mess = true;
+
+			}
+			else
+			{
+				msg = "null";
+				envoi_mess = false;
+			}
+			string mess = c1->getMessage();
+			if (mess != "NULL") {//comme Jo
+				interp->setDialogue(c1->getIdMessage() + " dit : " + mess);
+			}
+			if(msg!="null")
+			{
+				interp->setDialogue(msg);
+				c1->texte(msg, -1);
+			}
+			int id = interp->evene();
+			if(id!=-1)
+			{//cout << id << endl;
+				if(id==1)interp->setNiveau(z++);
+			}
+			// driver->beginScene (true, true,
+			//   irr::video::SColor (150,150,255,255));
+
+			if (lastFPS != fps)
+			{
+				core::stringw str = "Acharn - Version 3D :";
+				str += driver->getName();
+				str += " - FPS:";
+				str += fps;
+
+				device->setWindowCaption(str.c_str());
+				lastFPS = fps;
+			}
+			driver->endScene ();
+		}
+	c1->deconnexion();
+	device->drop();
+
+
+}

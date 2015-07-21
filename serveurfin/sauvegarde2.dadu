@@ -1,0 +1,48 @@
+fichier de configuration serveur V3
+
+[dadu]
+	password = dadu
+	Vie = 1000
+	Radiation = 500
+	Niveau = 1
+	Vitesse = 5
+	CapaCombat = 50
+	CapaTir = 50
+	Force = 23
+	Endurance = 23
+	Initiative = 23
+	Agilite = 23
+	Volonte = 23
+	Inteligence = 23
+	Competences = <<<SI-END-OF-MULTILINE-TEXT
+	<#nom = "brulure2"#degat=500 #tps=2#pas=2  #affect="vie"#cout=50 <#degat=(5%@vieMax)#nom="dot" #tps=5 #pas=5 #affect="radiation">>
+	<#nom="heal"#degat=0-(10%@vieMax)#affect="vie"#tps=8#pas=5#cout=50#affectcout="radiation">
+	<#nom="griffure"#degat=20#tps=0#pas=1#affect="vie"#affectcout="radiation"#cout=200+50/10>
+	<#nom="coup de bidon"#degat=25*Random($ccombat)#cout=Random(10)>
+	<#nom="dot"#degat=Random(50)#tps=4#pas=4>
+	<#nom="AvecsSousAttaque"#degat=Random(50)#tps=3.1#pas=2<#nom="SousAttaquedot"#degat=Random(50)#tps=3#pas=2>>
+	<#nom="AvecsSousAttaque"#degat=Random(50)<#nom="SousAttaquedot"#degat=Random(50)#tps=3#pas=2>>
+	<#nom="AvecsSousAttaque+dot"#degat=Random(50)#tps=3#pas=2<#nom="SousAttaque"#degat=Random(50)>>
+	<#nom="AvecsSousAttaque"#degat=Random(50)<#nom="SousAttaque"#degat=Random(50)>>
+	SI-END-OF-MULTILINE-TEXT
+	
+	
+	[god]
+	password = romainestundieu
+	Vie = 99999999
+	Radiation = 9999999
+	Niveau = 99
+	Vitesse = 20
+	CapaCombat = 100
+	CapaTir = 50
+	Force = 500
+	Endurance = 500
+	Initiative = 500
+	Agilite = 23
+	Volonte = 500
+	Inteligence = 500
+	Competences = <<<SI-END-OF-MULTILINE-TEXT
+	<#nom="invicus"#degat=0-(100%@vieMax)#tps=100#pas=100#cout=(50%$radiationMax)>
+	<#nom="Un petit coup de mains"#degat=$force*$niveau#cout=(Random(100)%$radiationMax)>
+	<#nom = "Platon is not dead"#degat=$intelligence*Random($niveau)-(100%@intelligence*Random(@niveau))#cout=Random($niveau)*(50%@vie)#cooldown=200>
+	SI-END-OF-MULTILINE-TEXT

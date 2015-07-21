@@ -1,0 +1,2 @@
+g++ 
+mainServeurV4.cpp /usr/lib/libboost_filesystem.so -o serveurv4 -Wall -g -O2
