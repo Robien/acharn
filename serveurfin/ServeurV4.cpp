@@ -338,11 +338,14 @@ void Serveur::ecoute()
                             vector<string> inf = split((*it).second.info.c_str(), ',', false);
                             vector<string> textu = backup.recupTexture(inf[1]);
                             string chaine5 = "ct;" + converstr((*it).first) + ";";
-                            chaine5 += textu[0];
-                            for (int j = 1; j < (int) textu.size(); j++)
-                            {
-                                chaine5 += "!" + textu[j];
-                            }
+			    if (textu.size() > 0)
+			    {
+				    chaine5 += textu[0];
+				    for (int j = 1; j < (int) textu.size(); j++)
+				    {
+					    chaine5 += "!" + textu[j];
+				    }
+			    }
                             const char* answer5 = chaine5.c_str();
                             sock.send_to(boost::asio::buffer(answer5, std::strlen(answer5)), sender_endpoint);
                         }
