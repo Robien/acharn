@@ -83,5 +83,5 @@ TARGET_LINK_LIBRARIES(acharn
 ${OPENAL_LIBRARY}
 ${IRRLICHT_LIBRARY}
 ${LIBSNDFILE_LIBRARY}
-" -lGL -lXxf86vm -lXext -lX11"
+"-lGL -lXxf86vm -lXext -lX11"
 )
