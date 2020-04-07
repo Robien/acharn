@@ -7,6 +7,7 @@ SET(CMAKE_CXX_FLAGS_DEBUG  "-Wall")
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 SET(CMAKE_USE_RELATIVE_PATHS "ON")
 
+
 IF(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
    SET(CMAKE_BUILD_TYPE RelWithDebInfo)
 ENDIF(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
@@ -26,6 +27,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/Modules/")
 find_package(Irrlicht)
 find_package(OpenAL)
 find_package(LibSndFile)
+find_package(OpenGL)
 
 #Inclusion de Boost
 include(FindBoost)
@@ -46,6 +48,7 @@ INCLUDE_DIRECTORIES(
    ${Boost_INCLUDE_DIRS}
    ${IRRLICHT_INCLUDE_DIR}
    ${OPENAL_INCLUDE_DIR}
+   ${OPENGL_INCLUDE_DIRS}
 	ackCore/include/
 	ackAudio/include/
 	ackPerso/include/
@@ -70,17 +73,15 @@ file(
 	application/*.cpp
 )
 
-#FILE(GLOB SRCS src/*.cpp)
-#FILE(GLOB HDRS include/*.h)
- 
 ADD_EXECUTABLE(
    acharn
    ${source_files}
 )
- 
+
 TARGET_LINK_LIBRARIES(acharn
    ${Boost_LIBRARIES}
 ${OPENAL_LIBRARY}
 ${IRRLICHT_LIBRARY}
 ${LIBSNDFILE_LIBRARY}
+" -lGL -lXxf86vm -lXext -lX11"
 )

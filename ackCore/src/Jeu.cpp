@@ -279,7 +279,7 @@ void ackCore::Jeu::run()
 
     selector_sauv = meta;
     _joueur->setMetaSelector(meta);
-    irr::core::vector3df posSpawn;// = spawnPoint[(Random().generer(0, spawnPoint.size() - 1))]->getTransformedBoundingBox().getCenter();
+    irr::core::vector3df posSpawn = spawnPoint[(Random().generer(0, spawnPoint.size() - 1))]->getTransformedBoundingBox().getCenter();
     justOneFrameChargement();
     _joueur->afficher(posSpawn.X, posSpawn.Y, posSpawn.Z);
     justOneFrameChargement();
