@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<mesh xmlns="http://irrlicht.sourceforge.net/IRRMESH_09_2007" version="1.0">
+<!-- Created 11/09/2010 15:35 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
+   <buffer>
+      <material bmat="uvmat:texture_bois_mur_sup.:00100">
+         <enum name="Type" value="solid"/>
+         <color name="Ambient" value="ffffffff"/>
+         <color name="Diffuse" value="ffffffff"/>
+         <color name="Emissive" value="ff000000"/>
+         <color name="Specular" value="ffffffff"/>
+         <float name="Shininess" value="0.000000"/>
+         <float name="Param1" value="0.000000"/>
+         <float name="Param2" value="0.000000"/>
+         <bool name="Wireframe" value="false"/>
+         <bool name="GouraudShading" value="true"/>
+         <bool name="Lighting" value="false"/>
+         <bool name="ZWriteEnable" value="true"/>
+         <int name="ZBuffer" value="1"/>
+         <bool name="BackfaceCulling" value="true"/>
+         <bool name="FrontfaceCulling" value="false"/>
+         <bool name="FogEnable" value="false"/>
+         <bool name="NormalizeNormals" value="false"/>
+         <int name="AntiAliasing" value="5"/>
+         <int name="ColorMask" value="15"/>
+         <texture name="Texture1" value="tex/texture_bois_mur_sup.jpg"/>
+         <enum name="TextureWrap1" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter1" value="true"/>
+         <bool name="TrilinearFilter1" value="false"/>
+         <int name="AnisotropicFilter1" value="0"/>
+         <int name="LODBias1" value="0"/>
+         <texture name="Texture2" value=""/>
+         <enum name="TextureWrap2" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter2" value="true"/>
+         <bool name="TrilinearFilter2" value="false"/>
+         <int name="AnisotropicFilter2" value="0"/>
+         <int name="LODBias2" value="0"/>
+         <texture name="Texture3" value=""/>
+         <enum name="TextureWrap3" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter3" value="true"/>
+         <bool name="TrilinearFilter3" value="false"/>
+         <int name="AnisotropicFilter3" value="0"/>
+         <int name="LODBias3" value="0"/>
+         <texture name="Texture4" value=""/>
+         <enum name="TextureWrap4" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter4" value="true"/>
+         <bool name="TrilinearFilter4" value="false"/>
+         <int name="AnisotropicFilter4" value="0"/>
+         <int name="LODBias4" value="0"/>
+      </material>
+      <vertices type="standard" vertexCount="52">
+         -2.312286 -0.036691 -0.026120 -0.707083 0.000000 -0.707083 ffffffff 1.003906 0.000000 
+         -2.312286 0.163309 -0.026120 -0.408246 0.816492 -0.408246 ffffffff 0.953125 0.031250 
+         -2.312285 0.163309 3.973880 -0.408246 0.816492 0.408246 ffffffff 0.953125 0.968750 
+         -2.312285 -0.036691 3.973880 -0.707083 0.000000 0.707083 ffffffff 1.003906 1.000000 
+         0.287714 0.163309 3.973880 0.408246 0.816492 0.408246 ffffffff 0.039678 0.046938 
+         0.287714 -0.036691 3.973880 0.707083 0.000000 0.707083 ffffffff 0.008428 0.000063 
+         -2.312285 -0.036691 3.973880 -0.707083 0.000000 0.707083 ffffffff 0.008428 0.996157 
+         -2.312285 0.163309 3.973880 -0.408246 0.816492 0.408246 ffffffff 0.039678 0.945376 
+         0.287714 -0.036691 3.973880 0.707083 0.000000 0.707083 ffffffff 0.007812 1.000000 
+         0.287714 0.163309 3.973880 0.408246 0.816492 0.408246 ffffffff 0.054687 0.968750 
+         0.287714 0.163309 -0.026120 0.408246 0.816492 -0.408246 ffffffff 0.054688 0.031250 
+         0.287714 -0.036691 -0.026120 0.707083 0.000000 -0.707083 ffffffff 0.007813 -0.000000 
+         0.287714 -0.036691 -0.026120 0.707083 0.000000 -0.707083 ffffffff 0.016052 0.992062 
+         0.287714 0.163309 -0.026120 0.408246 0.816492 -0.408246 ffffffff 0.047302 0.945187 
+         -2.312286 0.163309 -0.026120 -0.408246 0.816492 -0.408246 ffffffff 0.047303 0.046749 
+         -2.312286 -0.036691 -0.026120 -0.707083 0.000000 -0.707083 ffffffff 0.016053 -0.004032 
+         0.287714 0.163309 -0.026120 0.408246 0.816492 -0.408246 ffffffff 0.047302 0.945187 
+         0.087714 0.163309 0.173880 -0.127415 0.983612 0.127415 ffffffff 0.109802 0.874874 
+         -2.112286 0.163309 0.173880 0.127415 0.983612 0.127415 ffffffff 0.109803 0.128781 
+         -2.312286 0.163309 -0.026120 -0.408246 0.816492 -0.408246 ffffffff 0.047303 0.046749 
+         0.287714 0.163309 3.973880 0.408246 0.816492 0.408246 ffffffff 0.054687 0.968750 
+         0.087714 0.163309 3.773880 -0.127415 0.983612 -0.127415 ffffffff 0.125000 0.894531 
+         0.087714 0.163309 0.173880 -0.127415 0.983612 0.127415 ffffffff 0.125000 0.093750 
+         0.287714 0.163309 -0.026120 0.408246 0.816492 -0.408246 ffffffff 0.054688 0.031250 
+         -2.312285 0.163309 3.973880 -0.408246 0.816492 0.408246 ffffffff 0.039678 0.945376 
+         -2.112286 0.163309 3.773880 0.127415 0.983612 -0.127415 ffffffff 0.113896 0.863344 
+         0.087714 0.163309 3.773880 -0.127415 0.983612 -0.127415 ffffffff 0.113896 0.117251 
+         0.287714 0.163309 3.973880 0.408246 0.816492 0.408246 ffffffff 0.039678 0.046938 
+         -2.312286 0.163309 -0.026120 -0.408246 0.816492 -0.408246 ffffffff 0.953125 0.031250 
+         -2.112286 0.163309 0.173880 0.127415 0.983612 0.127415 ffffffff 0.871094 0.093750 
+         -2.112286 0.163309 3.773880 0.127415 0.983612 -0.127415 ffffffff 0.871094 0.894531 
+         -2.312285 0.163309 3.973880 -0.408246 0.816492 0.408246 ffffffff 0.953125 0.968750 
+         -2.112286 0.163309 0.173880 0.127415 0.983612 0.127415 ffffffff 0.871094 0.093750 
+         -1.932286 0.063309 0.353880 0.171422 0.970153 0.171422 ffffffff 0.808594 0.144531 
+         -1.932286 0.063309 3.593880 0.171422 0.970153 -0.171422 ffffffff 0.808594 0.824219 
+         -2.112286 0.163309 3.773880 0.127415 0.983612 -0.127415 ffffffff 0.871094 0.894531 
+         -2.112286 0.163309 3.773880 0.127415 0.983612 -0.127415 ffffffff 0.113896 0.863344 
+         -1.932286 0.063309 3.593880 0.171422 0.970153 -0.171422 ffffffff 0.184209 0.800844 
+         -0.092286 0.063309 3.593880 -0.171422 0.970153 -0.171422 ffffffff 0.184209 0.183657 
+         0.087714 0.163309 3.773880 -0.127415 0.983612 -0.127415 ffffffff 0.113896 0.117251 
+         0.087714 0.163309 3.773880 -0.127415 0.983612 -0.127415 ffffffff 0.125000 0.894531 
+         -0.092286 0.063309 3.593880 -0.171422 0.970153 -0.171422 ffffffff 0.191406 0.824219 
+         -0.092286 0.063309 0.353880 -0.171422 0.970153 0.171422 ffffffff 0.191406 0.144531 
+         0.087714 0.163309 0.173880 -0.127415 0.983612 0.127415 ffffffff 0.125000 0.093750 
+         0.087714 0.163309 0.173880 -0.127415 0.983612 0.127415 ffffffff 0.109802 0.874874 
+         -0.092286 0.063309 0.353880 -0.171422 0.970153 0.171422 ffffffff 0.160584 0.808468 
+         -1.932286 0.063309 0.353880 0.171422 0.970153 0.171422 ffffffff 0.160584 0.191281 
+         -2.112286 0.163309 0.173880 0.127415 0.983612 0.127415 ffffffff 0.109803 0.128781 
+         -1.932286 0.063309 0.353880 0.171422 0.970153 0.171422 ffffffff -0.000000 1.000000 
+         -0.092286 0.063309 0.353880 -0.171422 0.970153 0.171422 ffffffff 1.000000 1.000000 
+         -0.092286 0.063309 3.593880 -0.171422 0.970153 -0.171422 ffffffff 1.000000 0.000000 
+         -1.932286 0.063309 3.593880 0.171422 0.970153 -0.171422 ffffffff 0.000000 -0.000000 
+      </vertices>
+      <indices indexCount="78">
+         2 1 0 2 0 3 6 5 4 6 4 7 10 9 8 10 8 11 14 13 12 14 12 15 18 17 16 18 16 19 22 21 20 22 20 23
+         26 25 24 26 24 27 30 29 28 30 28 31 34 33 32 34 32 35 38 37 36 38 36 39 42 41 40 42 40 43 46 45 44 46 44 47
+         50 49 48 50 48 51
+      </indices>
+   </buffer>
+</mesh>

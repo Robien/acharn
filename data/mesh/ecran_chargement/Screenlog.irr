@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<!-- Created 09/08/2010 21:53 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
+<irr_scene>
+   <attributes>
+      <string name="Name" value="root"/>
+      <int name="Id" value="-1"/>
+      <vector3d name="Position" value="0.000000, 0.000000, 0.000000"/>
+      <vector3d name="Rotation" value="0.000000, 0.000000, 0.000000"/>
+      <vector3d name="Scale" value="1.000000, 1.000000, 1.000000"/>
+      <colorf name="AmbientLight" value="0.000000, 0.000000, 0.000000 1.000000"/>
+      <bool name="AutomaticCulling" value="true"/>
+      <bool name="DebugDataVisible" value="false"/>
+      <bool name="IsDebugObject" value="false"/>
+      <bool name="Visible" value="true"/>
+   </attributes>
+   <userData>
+      <attributes>
+         <string name="Exporter" value="irrb"/>
+         <string name="Exporter.Version" value="0.4"/>
+         <float name="Gravity" value="-9.800000"/>
+         <int name="OccludesLight" value="0"/>
+         <int name="Physics.Enabled" value="0"/>
+      </attributes>
+   </userData>
+   <node type="camera">
+      <attributes>
+         <string name="Name" value="Camera.001"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.443076, 3.189242, -35.915558"/>
+         <vector3d name="Rotation" value="0.000000, -0.000000, 0.000000"/>
+         <vector3d name="Scale" value="1.000000, 1.000000, 1.000000"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <vector3d name="Target" value="0.000000, 0.000000, 0.000000"/>
+         <vector3d name="UpVector" value="0.000000, 1.000000, 0.000000"/>
+         <float name="Fovy" value="0.857556"/>
+         <float name="Aspect" value="1.250000"/>
+         <float name="ZNear" value="0.10"/>
+         <float name="ZFar" value="100.00"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="panneau"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-2.705332, 3.911008, -33.312595"/>
+         <vector3d name="Rotation" value="0.255010, -0.000000, 0.000000"/>
+         <vector3d name="Scale" value="0.348845, 0.348845, 0.348845"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/panneau.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="chaine.001"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.990526, 3.926962, -32.663479"/>
+         <vector3d name="Rotation" value="-90.000000, -0.000000, -0.000000"/>
+         <vector3d name="Scale" value="0.031806, 0.031806, 0.031806"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/chaine.001.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="chaine"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.090526, 4.226962, -32.663479"/>
+         <vector3d name="Rotation" value="-90.000000, -0.000000, -0.000000"/>
+         <vector3d name="Scale" value="0.031806, 0.031806, 0.031806"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/chaine.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="light">
+      <attributes>
+         <string name="Name" value="Lamp.002"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.727100, 5.138936, -35.730469"/>
+         <vector3d name="Rotation" value="90.000000, -0.000000, 0.000000"/>
+         <vector3d name="Scale" value="1.000000, 1.000000, 1.000000"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <enum name="LightType" value="Point"/>
+         <colorf name="AmbientColor" value="0.000000,0.000000, 0.000000, 1.000000"/>
+         <colorf name="DiffuseColor" value="1.000000, 1.000000, 1.000000 1.000000"/>
+         <colorf name="SpecularColor" value="1.000000,1.000000, 1.000000, 1.000000"/>
+         <vector3d name="Attenuation" value="0.000000 0.500000 0.000000"/>
+         <float name="Radius" value="40.00"/>
+         <bool name="CastShadows" value="true"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="pancarte"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.462843, 3.842550, -32.599709"/>
+         <vector3d name="Rotation" value="-0.000000, -0.000001, 20.274914"/>
+         <vector3d name="Scale" value="0.417130, 0.417130, 0.417130"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/pancarte.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="pillier"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="1.005162, 2.000528, -33.332905"/>
+         <vector3d name="Rotation" value="0.000000, -0.255016, 90.000000"/>
+         <vector3d name="Scale" value="0.184658, 0.184658, 0.184658"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/pillier.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="pillier.002"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-1.889374, 2.000528, -33.332905"/>
+         <vector3d name="Rotation" value="0.000000, -0.255016, 90.000000"/>
+         <vector3d name="Scale" value="0.184658, 0.184658, 0.184658"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/pillier.002.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="panneau_bas"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-2.705332, 0.611008, -33.512596"/>
+         <vector3d name="Rotation" value="0.255010, -0.000000, 0.000000"/>
+         <vector3d name="Scale" value="0.348845, 0.348845, 0.348845"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/panneau_bas.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="sky_log"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-5.427947, 3.907690, -23.614155"/>
+         <vector3d name="Rotation" value="-0.000000, -0.000000, 3.084675"/>
+         <vector3d name="Scale" value="46.182617, 46.182617, 46.182602"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/sky_log.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="sand"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-21.253330, -28.037956, -48.979687"/>
+         <vector3d name="Rotation" value="-6.325866, 0.001929, -0.239524"/>
+         <vector3d name="Scale" value="1.437944, 1.437944, 1.437944"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/sand.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="light">
+      <attributes>
+         <string name="Name" value="Lamp"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="6.447013, 49.460278, 42.076790"/>
+         <vector3d name="Rotation" value="42.466419, -107.220764, 10.743672"/>
+         <vector3d name="Scale" value="0.348845, 0.348845, 0.348845"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <enum name="LightType" value="Point"/>
+         <colorf name="AmbientColor" value="0.000000,0.000000, 0.000000, 1.000000"/>
+         <colorf name="DiffuseColor" value="1.000000, 1.000000, 1.000000 1.000000"/>
+         <colorf name="SpecularColor" value="1.000000,1.000000, 1.000000, 1.000000"/>
+         <vector3d name="Attenuation" value="0.000000 0.500000 0.000000"/>
+         <float name="Radius" value="60.00"/>
+         <bool name="CastShadows" value="true"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+   <node type="mesh">
+      <attributes>
+         <string name="Name" value="acharn"/>
+         <int name="Id" value="-1"/>
+         <vector3d name="Position" value="-0.494037, 4.115719, -32.700779"/>
+         <vector3d name="Rotation" value="-90.000000, -0.000001, 20.274908"/>
+         <vector3d name="Scale" value="0.245817, 0.245817, 0.245817"/>
+         <bool name="Visible" value="true"/>
+         <enum name="AutomaticCulling" value="1"/>
+         <bool name="DebugDataVisible" value="false"/>
+         <bool name="IsDebugObject" value="false"/>
+         <bool name="ReadOnlyMaterials" value="false"/>
+         <string name="Mesh" value="mdl/acharn.irrmesh"/>
+      </attributes>
+      <userData>
+         <attributes>
+         </attributes>
+      </userData>
+   </node>
+</irr_scene>

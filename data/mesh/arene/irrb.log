@@ -1,0 +1,1413 @@
+irrb log 0.4
+
+[blender info]
+             OS: Windows post2008Server 6.1.7600
+        Version: 249
+    .blend File: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\arene_test.blend
+    .blend Root: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender
+ Python Version: 2.6.1 final
+
+[options]
+   Create Scene: True
+ Base Directory: C:\Users\ecadic\irrb\
+Scene Directory: C:\Users\ecadic\irrb\
+ Mesh Directory: C:\Users\ecadic\irrb\mdl\
+Image Directory: C:\Users\ecadic\irrb\tex\
+     meshOutDir: mdl
+      texOutDir: tex
+         Binary: False
+ Export Cameras: True
+  Export Lights: True
+ Export Physics: False
+Image Extension: Original
+  Selected Only: True
+   Irrlicht Ver: 1.7
+  iwalktest Env: C:\irrbUtils\iwalktest.exe -i "$1" -a "$2"
+   imeshcvt Env: C:\irrbUtils\imeshcvt.exe
+  iwalktest Cmd: C:\irrbUtils\iwalktest.exe -i "C:/Users/ecadic/irrb/Scene.irr" -a "C:/Users/ecadic/irrb/"
+
+[scene info]
+Scene Name:Scene
+Visible Layers: [1]
+
+[animation info]
+fpsbase: 1.0000
+    fps: 25
+ sFrame: 1
+ eFrame: 250
+
+[ipo info]
+IPO's: []
+Key's: []
+
+[action info]
+
+[object info]
+Object (0): Name=Lamp.005, Type=Lamp, Layers=[1]
+Object (1): Name=Lamp.004, Type=Lamp, Layers=[1]
+Object (2): Name=Lamp.003, Type=Lamp, Layers=[1]
+Object (3): Name=Lamp.002, Type=Lamp, Layers=[1]
+Object (4): Name=Plane.012, Type=Mesh, Layers=[1]
+Object (5): Name=Plane.002, Type=Mesh, Layers=[1]
+Object (6): Name=sol_ville.001, Type=Mesh, Layers=[1]
+Object (7): Name=Lamp.001, Type=Lamp, Layers=[1]
+Object (8): Name=Lamp, Type=Lamp, Layers=[11]
+Object (9): Name=grille_prinson, Type=Mesh, Layers=[1]
+Object (10): Name=ring_inf.005, Type=Mesh, Layers=[1]
+Object (11): Name=ring_inf.004, Type=Mesh, Layers=[1]
+Object (12): Name=ring_inf.003, Type=Mesh, Layers=[1]
+Object (13): Name=ring_inf.002, Type=Mesh, Layers=[1]
+Object (14): Name=ring_inf.001, Type=Mesh, Layers=[1]
+Object (15): Name=stairs.001, Type=Mesh, Layers=[1]
+Object (16): Name=ring_sup.002, Type=Mesh, Layers=[1]
+Object (17): Name=ring_sup.001, Type=Mesh, Layers=[1]
+Object (18): Name=banc.002, Type=Mesh, Layers=[1]
+Object (19): Name=banc.001, Type=Mesh, Layers=[1]
+Object (20): Name=Cube.002, Type=Mesh, Layers=[1]
+Object (21): Name=estrade, Type=Mesh, Layers=[1]
+Object (22): Name=Plane.011, Type=Mesh, Layers=[17]
+Object (23): Name=Cube.001, Type=Mesh, Layers=[17]
+Object (24): Name=sky, Type=Mesh, Layers=[1]
+Object (25): Name=Plane.001, Type=Mesh, Layers=[17]
+Object (26): Name=Plane, Type=Mesh, Layers=[17]
+Object (27): Name=Camera, Type=Camera, Layers=[10]
+Object (28): Name=tuyaux, Type=Mesh, Layers=[1]
+Object (29): Name=bassin_lave, Type=Mesh, Layers=[1]
+Object (30): Name=bassin, Type=Mesh, Layers=[1]
+Object (31): Name=conduit, Type=Mesh, Layers=[1]
+Object (32): Name=puit, Type=Mesh, Layers=[1]
+Object (33): Name=prison, Type=Mesh, Layers=[1]
+Object (34): Name=Plane.010, Type=Mesh, Layers=[6]
+Object (35): Name=dome.003, Type=Mesh, Layers=[1]
+Object (36): Name=dome.002, Type=Mesh, Layers=[1]
+Object (37): Name=dome.001, Type=Mesh, Layers=[1]
+Object (38): Name=Camera.004, Type=Camera, Layers=[1]
+Object (39): Name=Camera.003, Type=Camera, Layers=[6]
+Object (40): Name=Plane.009, Type=Mesh, Layers=[6]
+Object (41): Name=sol_ville, Type=Mesh, Layers=[1]
+Object (42): Name=dome, Type=Mesh, Layers=[1]
+Object (43): Name=ring_inf, Type=Mesh, Layers=[1]
+Object (44): Name=ring_sup, Type=Mesh, Layers=[1]
+Object (45): Name=Plane.008, Type=Mesh, Layers=[8]
+Object (46): Name=Plane.007, Type=Mesh, Layers=[7]
+Object (47): Name=Plane.006, Type=Mesh, Layers=[7]
+Object (48): Name=Plane.005, Type=Mesh, Layers=[7]
+Object (49): Name=Camera.001, Type=Camera, Layers=[7]
+Object (50): Name=Plane.004, Type=Mesh, Layers=[7]
+Object (51): Name=Plane.003, Type=Mesh, Layers=[6]
+Object (52): Name=Circle.003, Type=Mesh, Layers=[2]
+Object (53): Name=sol, Type=Mesh, Layers=[1]
+Object (54): Name=rocher, Type=Mesh, Layers=[1]
+Object (55): Name=pont.002, Type=Mesh, Layers=[1]
+Object (56): Name=pont, Type=Mesh, Layers=[1]
+Object (57): Name=pont.001, Type=Mesh, Layers=[1]
+Object (58): Name=pont.003, Type=Mesh, Layers=[1]
+Object (59): Name=Cube, Type=Mesh, Layers=[1]
+Object (60): Name=banc, Type=Mesh, Layers=[1]
+Object (61): Name=stairs, Type=Mesh, Layers=[1]
+Object (62): Name=murs_sup.001, Type=Mesh, Layers=[1]
+Object (63): Name=murs_inf, Type=Mesh, Layers=[1]
+Object (64): Name=murs_sup, Type=Mesh, Layers=[1]
+
+[Mesh - ob:Plane.012, me:Plane.011]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): trans_alphach
+Primary UV Layer: trans_alphach
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: wanted.png
+org fullFileName: C:\Users\ecadic\irrb\tex\wanted.png
+fullFileName: C:\Users\ecadic\irrb\tex\wanted.png
+dirname: C:\Users\ecadic\irrb\tex
+fileName: wanted
+fileExt: .png
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\wanted.png
+result1: C:\Users\ecadic\irrb\tex\wanted.png
+
+[Buffers]
+Count: 1
+   uvmat:wanted.png:00100 : UVMaterial
+
+[Mesh - ob:Plane.002, me:Plane.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): trans_alphach
+Primary UV Layer: trans_alphach
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: barreaux.png
+org fullFileName: C:\Users\ecadic\irrb\tex\barreaux.png
+fullFileName: C:\Users\ecadic\irrb\tex\barreaux.png
+dirname: C:\Users\ecadic\irrb\tex
+fileName: barreaux
+fileExt: .png
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\barreaux.png
+result1: C:\Users\ecadic\irrb\tex\barreaux.png
+
+[Buffers]
+Count: 1
+   uvmat:barreaux.png:00100 : UVMaterial
+
+[Mesh - ob:sol_ville.001, me:sol_ville.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): a, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_mur_bas.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\texture_mur_bas.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\texture_mur_bas.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture_mur_bas
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_mur_bas.jpg
+result1: C:\Users\ecadic\irrb\tex\texture_mur_bas.jpg
+
+[Image]
+imageName: normal_mur_pierre.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_pierre.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_pierre.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_mur_pierre
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_mur_pierre.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_mur_pierre.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_bas.jpg:normal_mur_pierre.jpg:00100 : UVMaterial
+
+[Mesh - ob:grille_prinson, me:grille_prison]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_grille_prison_
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_grille_prison_grille_prinson.tga
+fullFileName: C:\Users\ecadic\irrb\tex\normal_grille_prison_grille_prinson.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_grille_prison_grille_prinson
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_grille_prison_grille_prinson.tga
+result1: C:\Users\ecadic\irrb\tex\normal_grille_prison_grille_prinson.tga
+
+[Image]
+imageName: normal_grille_prison.
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_grille_prison.tga
+fullFileName: C:\Users\ecadic\irrb\tex\normal_grille_prison.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_grille_prison
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_grille_prison.tga
+result1: C:\Users\ecadic\irrb\tex\normal_grille_prison.tga
+
+[Buffers]
+Count: 1
+   uvmat:normal_grille_prison_:normal_grille_prison.:00100 : UVMaterial
+
+[Mesh - ob:ring_inf.005, me:ring_inf.005]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_mur_bas.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_bas.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_bas.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_mur_bas
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_mur_bas.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_mur_bas.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_bas.jpg:normal_mur_bas.jpg:00100 : UVMaterial
+
+[Mesh - ob:ring_inf.004, me:ring_inf.004]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_bas.jpg:normal_mur_bas.jpg:00100 : UVMaterial
+
+[Mesh - ob:ring_inf.003, me:ring_inf.003]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_bas.jpg:normal_mur_bas.jpg:00100 : UVMaterial
+
+[Mesh - ob:ring_inf.002, me:ring_inf.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sol_gravier.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\texture bois.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\texture bois.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture bois
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture bois.jpg
+result1: C:\Users\ecadic\irrb\tex\texture bois.jpg
+
+[Image]
+imageName: normal_plancher_g
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_plancher_gradins.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_plancher_gradins.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_plancher_gradins
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_plancher_gradins.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_plancher_gradins.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:normal_plancher_g:00100 : UVMaterial
+
+[Mesh - ob:ring_inf.001, me:ring_inf.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): a, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sol_sal.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\sol_sal.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\sol_sal.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: sol_sal
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\sol_sal.jpg
+result1: C:\Users\ecadic\irrb\tex\sol_sal.jpg
+
+[Image]
+imageName: normal_dalle_pierre.j
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_dalle_pierre.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_dalle_pierre.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_dalle_pierre
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_dalle_pierre.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_dalle_pierre.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sol_sal.jpg:normal_dalle_pierre.j:00100 : UVMaterial
+
+[Mesh - ob:stairs.001, me:stairs.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): e, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_bois_mur_sup.
+org fullFileName: C:\Users\ecadic\irrb\tex\texture_bois_mur_sup.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\texture_bois_mur_sup.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture_bois_mur_sup
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_bois_mur_sup.jpg
+result1: C:\Users\ecadic\irrb\tex\texture_bois_mur_sup.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:normal_plancher_g:00100 : UVMaterial
+
+[Mesh - ob:ring_sup.002, me:ring_sup.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): l, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_mur_bois.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_bois.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_mur_bois.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_mur_bois
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_mur_bois.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_mur_bois.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:normal_mur_bois.jpg:00100 : UVMaterial
+
+[Mesh - ob:ring_sup.001, me:ring_sup.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: mur_arene.jpg.001
+org fullFileName: C:\Users\ecadic\irrb\tex\mur_arene.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\mur_arene.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: mur_arene
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\mur_arene.jpg
+result1: C:\Users\ecadic\irrb\tex\mur_arene.jpg
+
+[Image]
+imageName: normal_plafond_su
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_plafond_sup.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_plafond_sup.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_plafond_sup
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_plafond_sup.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_plafond_sup.jpg
+
+[Buffers]
+Count: 1
+   uvmat:mur_arene.jpg.001:normal_plafond_su:00100 : UVMaterial
+
+[Mesh - ob:banc.002, me:banc.012]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): tex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: banc_Cube.tga.001
+org fullFileName: C:\Users\ecadic\irrb\tex\banc_Cube.tga
+fullFileName: C:\Users\ecadic\irrb\tex\banc_Cube.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: banc_Cube
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\banc_Cube.tga
+result1: C:\Users\ecadic\irrb\tex\banc_Cube.tga
+
+[Image]
+imageName: normal_banc.tga
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_banc.tga
+fullFileName: C:\Users\ecadic\irrb\tex\normal_banc.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_banc
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_banc.tga
+result1: C:\Users\ecadic\irrb\tex\normal_banc.tga
+
+[Buffers]
+Count: 1
+   uvmat:banc_Cube.tga.001:normal_banc.tga:00100 : UVMaterial
+
+[Mesh - ob:banc.001, me:banc.011]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): tex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:banc_Cube.tga.001:normal_banc.tga:00100 : UVMaterial
+
+[Mesh - ob:Cube.002, me:Cube.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (0): 
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   unassigned : DefaultMaterial
+
+[Mesh - ob:estrade, me:estrade]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): solid
+Primary UV Layer: solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: arene_test_estrade.tg
+org fullFileName: C:\Users\ecadic\irrb\tex\arene_test_estrade.tga
+fullFileName: C:\Users\ecadic\irrb\tex\arene_test_estrade.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: arene_test_estrade
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\arene_test_estrade.tga
+result1: C:\Users\ecadic\irrb\tex\arene_test_estrade.tga
+
+[Buffers]
+Count: 1
+   uvmat:arene_test_estrade.tg:00100 : UVMaterial
+
+[Mesh - ob:sky, me:sky]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): solid
+Primary UV Layer: solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sky.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\sky.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\sky.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: sky
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\sky.jpg
+result1: C:\Users\ecadic\irrb\tex\sky.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sky.jpg:00100 : UVMaterial
+
+[Mesh - ob:tuyaux, me:tuyaux]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): solid
+Primary UV Layer: solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_mur_sup.t
+org fullFileName: C:\Users\ecadic\irrb\tex\texture_mur_sup.tga
+fullFileName: C:\Users\ecadic\irrb\tex\texture_mur_sup.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture_mur_sup
+fileExt: .tga
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_mur_sup.tga
+result1: C:\Users\ecadic\irrb\tex\texture_mur_sup.tga
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_sup.t:00100 : UVMaterial
+
+[Mesh - ob:bassin_lave, me:bassin_lave]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex.001, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_bassin_lave.jp
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_bassin_lave.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_bassin_lave.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_bassin_lave
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_bassin_lave.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_bassin_lave.jpg
+
+[Buffers]
+Count: 1
+   uvmat:mur_arene.jpg.001:normal_bassin_lave.jp:00100 : UVMaterial
+
+[Mesh - ob:bassin, me:bassin]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex.001, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_gravure.j
+org fullFileName: C:\Users\ecadic\irrb\tex\texture_gravure.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\texture_gravure.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture_gravure
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_gravure.jpg
+result1: C:\Users\ecadic\irrb\tex\texture_gravure.jpg
+
+[Image]
+imageName: normal_bassin.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_bassin.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_bassin.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_bassin
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_bassin.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_bassin.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.j:normal_bassin.jpg:00100 : UVMaterial
+
+[Mesh - ob:conduit, me:conduit]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_plafond_sup.jp
+org fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plafond_sup.jpg
+fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plafond_sup.jpg
+dirname: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender
+fileName: normal_plafond_sup
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: ..\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plafond_sup.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_plafond_sup.jpg
+
+[Buffers]
+Count: 1
+   uvmat:mur_arene.jpg.001:normal_plafond_sup.jp:00100 : UVMaterial
+
+[Mesh - ob:puit, me:puit]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:mur_arene.jpg.001:normal_mur_bois.jpg:00100 : UVMaterial
+
+[Mesh - ob:prison, me:prison]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, UVTex.001
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:none:texture_mur_sup.t:00100 : UVMaterial
+
+[Mesh - ob:dome.003, me:dome.003]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): solid
+Primary UV Layer: solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_sup.t:00100 : UVMaterial
+
+[Mesh - ob:dome.002, me:dome.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): solid
+Primary UV Layer: solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_sup.t:00100 : UVMaterial
+
+[Mesh - ob:dome.001, me:dome.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_plancher_gradi
+org fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+dirname: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender
+fileName: normal_plancher_gradins
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: ..\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_plancher_gradins.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:normal_plancher_gradi:00100 : UVMaterial
+
+[Mesh - ob:sol_ville, me:sol_ville]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): a, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_bas.jpg:normal_mur_pierre.jpg:00100 : UVMaterial
+
+[Mesh - ob:dome, me:dome]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.j:normal_plafond_su:00100 : UVMaterial
+
+[Mesh - ob:ring_inf, me:ring_inf]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex.001, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:normal_plancher_g:00100 : UVMaterial
+
+[Mesh - ob:ring_sup, me:ring_sup]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_bois2.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\texture_bois2.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\texture_bois2.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: texture_bois2
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_bois2.jpg
+result1: C:\Users\ecadic\irrb\tex\texture_bois2.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois2.jpg:normal_plafond_su:00100 : UVMaterial
+
+[Mesh - ob:sol, me:sol]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sol_gravier.jpg.001
+org fullFileName: C:\Users\ecadic\irrb\tex\sol_gravier.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\sol_gravier.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: sol_gravier
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\sol_gravier.jpg
+result1: C:\Users\ecadic\irrb\tex\sol_gravier.jpg
+
+[Image]
+imageName: normal_sol.jpg.001
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_sol.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_sol.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_sol
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_sol.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_sol.jpg
+
+[Buffers]
+Count: 2
+   unassigned : DefaultMaterial
+   uvmat:sol_gravier.jpg.001:normal_sol.jpg.001:00100 : UVMaterial
+
+[Mesh - ob:rocher, me:rocher]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.j:00100 : UVMaterial
+
+[Mesh - ob:pont.002, me:pont.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:00100 : UVMaterial
+
+[Mesh - ob:pont, me:pont]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:00100 : UVMaterial
+
+[Mesh - ob:pont.001, me:pont.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:00100 : UVMaterial
+
+[Mesh - ob:pont.003, me:pont.003]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:sol_gravier.jpg:00100 : UVMaterial
+
+[Mesh - ob:Cube, me:Cube]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers:
+   Name: Mirror, Type: Mirror
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:mur_arene.jpg.001:00100 : UVMaterial
+
+[Mesh - ob:banc, me:banc.010]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): tex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:banc_Cube.tga.001:normal_banc.tga:00100 : UVMaterial
+
+[Mesh - ob:stairs, me:stairs]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): e, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: stairs_ring_inf.tga
+org fullFileName: C:\Users\ecadic\irrb\tex\stairs_ring_inf.tga
+fullFileName: C:\Users\ecadic\irrb\tex\stairs_ring_inf.tga
+dirname: C:\Users\ecadic\irrb\tex
+fileName: stairs_ring_inf
+fileExt: .tga
+bImage.depth: 32
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\stairs_ring_inf.tga
+result1: C:\Users\ecadic\irrb\tex\stairs_ring_inf.tga
+
+[Image]
+imageName: normal_stairs.jpg
+org fullFileName: C:\Users\ecadic\irrb\tex\normal_stairs.jpg
+fullFileName: C:\Users\ecadic\irrb\tex\normal_stairs.jpg
+dirname: C:\Users\ecadic\irrb\tex
+fileName: normal_stairs
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\normal_stairs.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_stairs.jpg
+
+[Buffers]
+Count: 1
+   uvmat:stairs_ring_inf.tga:normal_stairs.jpg:00100 : UVMaterial
+
+[Mesh - ob:murs_sup.001, me:Circle.012]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): UVTex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: normal_plancher_g.001
+org fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+dirname: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender
+fileName: normal_plancher_gradins
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: ..\Downloads\blender-2.49b-win64-python26(2)\.blender\normal_plancher_gradins.jpg
+result1: C:\Users\ecadic\irrb\tex\normal_plancher_gradins.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois2.jpg:normal_plancher_g.001:00100 : UVMaterial
+
+[Mesh - ob:murs_inf, me:murs_inf]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): a, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.j:normal_mur_pierre.jpg:00100 : UVMaterial
+
+[Mesh - ob:murs_sup, me:murs_sup]
+Restrict Display: False
+Restrict Render: False
+UV Layers (2): uvtex, normalmap_solid
+Primary UV Layer: normalmap_solid
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_mur_sup.tga
+org fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\texture_mur_sup.tga
+fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\texture_mur_sup.tga
+dirname: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)
+fileName: texture_mur_sup
+fileExt: .tga
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: ..\Downloads\blender-2.49b-win64-python26(2)\texture_mur_sup.tga
+result1: C:\Users\ecadic\irrb\tex\texture_mur_sup.tga
+
+[Image]
+imageName: normal_mur__int_s
+org fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\normal_mur__int_sup_arene.tga
+fullFileName: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\normal_mur__int_sup_arene.tga
+dirname: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)
+fileName: normal_mur__int_sup_arene
+fileExt: .tga
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: ..\Downloads\blender-2.49b-win64-python26(2)\normal_mur__int_sup_arene.tga
+result1: C:\Users\ecadic\irrb\tex\normal_mur__int_sup_arene.tga
+
+[Buffers]
+Count: 1
+   uvmat:texture_mur_sup.tga:normal_mur__int_s:00100 : UVMaterial
+
+[stats]
+Export Complete - 9.99 seconds - 10:39:07 08/25/10
+42 Object(s)
+42 Meshes
+5 Light(s)
+0 Image(s)
+12230/6124 Verts/Tris

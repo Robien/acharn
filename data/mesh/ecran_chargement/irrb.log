@@ -1,0 +1,691 @@
+irrb log 0.4
+
+[blender info]
+             OS: Windows post2008Server 6.1.7600
+        Version: 249
+    .blend File: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender\ecranchargement.blend
+    .blend Root: C:\Users\ecadic\Downloads\blender-2.49b-win64-python26(2)\.blender
+ Python Version: 2.6.1 final
+
+[options]
+   Create Scene: True
+ Base Directory: C:\Users\ecadic\log\
+Scene Directory: C:\Users\ecadic\log\
+ Mesh Directory: C:\Users\ecadic\log\mdl\
+Image Directory: C:\Users\ecadic\log\tex\
+     meshOutDir: mdl
+      texOutDir: tex
+         Binary: False
+ Export Cameras: True
+  Export Lights: True
+ Export Physics: False
+Image Extension: Original
+  Selected Only: True
+   Irrlicht Ver: 1.7
+  iwalktest Env: C:\irrbUtils\iwalktest.exe -i "$1" -a "$2"
+   imeshcvt Env: C:\irrbUtils\imeshcvt.exe
+  iwalktest Cmd: C:\irrbUtils\iwalktest.exe -i "C:/Users/ecadic/log/Scene.irr" -a "C:/Users/ecadic/log/"
+
+[scene info]
+Scene Name:Scene
+Visible Layers: [1]
+
+[animation info]
+fpsbase: 1.0000
+    fps: 25
+ sFrame: 1
+ eFrame: 250
+
+[ipo info]
+IPO's: [[Ipo "ActIpo" (Action)], [Ipo "ActIpo.001" (Action)], [Ipo "ActIpo.002" (Action)], [Ipo "ActIpo.003" (Action)]]
+Key's: []
+curve [IpoCurve "LocX"]
+curve [IpoCurve "LocY"]
+curve [IpoCurve "LocZ"]
+curve [IpoCurve "QuatW"]
+curve [IpoCurve "QuatX"]
+curve [IpoCurve "QuatY"]
+curve [IpoCurve "QuatZ"]
+curve [IpoCurve "LocX"]
+curve [IpoCurve "LocY"]
+curve [IpoCurve "LocZ"]
+curve [IpoCurve "QuatW"]
+curve [IpoCurve "QuatX"]
+curve [IpoCurve "QuatY"]
+curve [IpoCurve "QuatZ"]
+curve [IpoCurve "LocX"]
+curve [IpoCurve "LocY"]
+curve [IpoCurve "LocZ"]
+curve [IpoCurve "QuatW"]
+curve [IpoCurve "QuatX"]
+curve [IpoCurve "QuatY"]
+curve [IpoCurve "QuatZ"]
+curve [IpoCurve "LocX"]
+curve [IpoCurve "LocY"]
+curve [IpoCurve "LocZ"]
+curve [IpoCurve "QuatW"]
+curve [IpoCurve "QuatX"]
+curve [IpoCurve "QuatY"]
+curve [IpoCurve "QuatZ"]
+
+[action info]
+
+   Name: Action
+      Frames: [1, 19, 20, 39, 40, 59, 60, 79, 80]
+        IPOS: {'roue1': [Ipo "ActIpo" (Action)], 'roue2': [Ipo "ActIpo.001" (Action)], 'roue3': [Ipo "ActIpo.003" (Action)], 'roue4': [Ipo "ActIpo.002" (Action)]}
+          ch: roue1
+         ipo: [Ipo "ActIpo" (Action)]
+    ipo name: ActIpo
+    ipo prop: []
+    ipo type: <type 'Blender Ipo'>
+      ipo bt: Action/Pose
+      ipo ch: None
+      curves: 7
+
+      [curve: 0]
+            name: LocX
+           curve: [IpoCurve "LocX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.027407169342041, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0274066925048828, 0.0, 0.0]
+ bezier point[1]: [11.972593307495117, 0.0, 0.0], [19.0, 0.0, 0.0], [26.808229446411133, 0.0, 0.0]
+ bezier point[2]: [31.191770553588867, 0.0, 0.0], [39.0, 0.0, 0.0], [46.808231353759766, 0.0, 0.0]
+ bezier point[3]: [51.191768646240234, 0.0, 0.0], [59.0, 0.0, 0.0], [66.8082275390625, 0.0, 0.0]
+ bezier point[4]: [71.1917724609375, 0.0, 0.0], [79.0, 0.0, 0.0], [86.8082275390625, 0.0, 0.0]
+
+      [curve: 1]
+            name: LocY
+           curve: [IpoCurve "LocY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.027407169342041, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0274066925048828, 0.0, 0.0]
+ bezier point[1]: [11.972593307495117, 0.0, 0.0], [19.0, 0.0, 0.0], [26.808229446411133, 0.0, 0.0]
+ bezier point[2]: [31.191770553588867, 0.0, 0.0], [39.0, 0.0, 0.0], [46.808231353759766, 0.0, 0.0]
+ bezier point[3]: [51.191768646240234, 0.0, 0.0], [59.0, 0.0, 0.0], [66.8082275390625, 0.0, 0.0]
+ bezier point[4]: [71.1917724609375, 0.0, 0.0], [79.0, 0.0, 0.0], [86.8082275390625, 0.0, 0.0]
+
+      [curve: 2]
+            name: LocZ
+           curve: [IpoCurve "LocZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.027407169342041, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0274066925048828, 0.0, 0.0]
+ bezier point[1]: [11.972593307495117, 0.0, 0.0], [19.0, 0.0, 0.0], [26.808229446411133, 0.0, 0.0]
+ bezier point[2]: [31.191770553588867, 0.0, 0.0], [39.0, 0.0, 0.0], [46.808231353759766, 0.0, 0.0]
+ bezier point[3]: [51.191768646240234, 0.0, 0.0], [59.0, 0.0, 0.0], [66.8082275390625, 0.0, 0.0]
+ bezier point[4]: [71.1917724609375, 0.0, 0.0], [79.0, 0.0, 0.0], [86.8082275390625, 0.0, 0.0]
+
+      [curve: 3]
+            name: QuatW
+           curve: [IpoCurve "QuatW"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.0236883163452148, 1.0, 0.0], [1.0, 1.0, 0.0], [8.0236883163452148, 1.0, 0.0]
+ bezier point[1]: [11.981939315795898, 0.88826817274093628, 0.0], [19.0, 0.7071068286895752, 0.0], [26.797843933105469, 0.50581645965576172, 0.0]
+ bezier point[2]: [31.211215972900391, 0.2753751277923584, 0.0], [39.0, 8.9406967163085938e-08, 0.0], [46.788784027099609, -0.27537494897842407, 0.0]
+ bezier point[3]: [51.201511383056641, -0.70710670948028564, 0.0], [59.0, -0.70710670948028564, 0.0], [66.798492431640625, -0.70710670948028564, 0.0]
+ bezier point[4]: [79.0, -1.0, 0.0], [79.0, -1.0, 0.0], [79.0, -1.0, 0.0]
+
+      [curve: 4]
+            name: QuatX
+           curve: [IpoCurve "QuatX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.027407169342041, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0274066925048828, 0.0, 0.0]
+ bezier point[1]: [11.972593307495117, 1.6980239436747979e-09, 0.0], [19.0, 2.3196318199580901e-09, 0.0], [26.808229446411133, 3.0103071146925231e-09, 0.0]
+ bezier point[2]: [31.191770553588867, 3.2804550187393033e-09, 0.0], [39.0, 3.2804550187393033e-09, 0.0], [46.808231353759766, 3.2804550187393033e-09, 0.0]
+ bezier point[3]: [51.191768646240234, 2.9599958040193997e-09, 0.0], [59.0, 2.3196324860919049e-09, 0.0], [66.8082275390625, 1.6792691681644101e-09, 0.0]
+ bezier point[4]: [71.1917724609375, 1.7763568394002505e-15, 0.0], [79.0, 1.7763568394002505e-15, 0.0], [86.8082275390625, 1.7763568394002505e-15, 0.0]
+
+      [curve: 5]
+            name: QuatY
+           curve: [IpoCurve "QuatY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.027407169342041, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0274066925048828, 0.0, 0.0]
+ bezier point[1]: [11.972593307495117, -2.1332235533577659e-08, 0.0], [19.0, -2.9141480339944792e-08, 0.0], [26.808229446411133, -3.7818416842583247e-08, 0.0]
+ bezier point[2]: [31.191770553588867, -4.1212278034663541e-08, 0.0], [39.0, -4.1212278034663541e-08, 0.0], [46.808231353759766, -4.1212278034663541e-08, 0.0]
+ bezier point[3]: [51.191768646240234, -3.7186357104701528e-08, 0.0], [59.0, -2.914148566901531e-08, 0.0], [66.8082275390625, -2.1096614233329092e-08, 0.0]
+ bezier point[4]: [71.1917724609375, -8.659739592076221e-15, 0.0], [79.0, -8.659739592076221e-15, 0.0], [86.8082275390625, -8.659739592076221e-15, 0.0]
+
+      [curve: 6]
+            name: QuatZ
+           curve: [IpoCurve "QuatZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.0058174133300781, 0.0, 0.0], [1.0, 0.0, 0.0], [8.0058174133300781, 0.0, 0.0]
+ bezier point[1]: [11.982789039611816, 0.51789343357086182, 0.0], [19.0, 0.70710676908493042, 0.0], [26.796901702880859, 0.9173438549041748, 0.0]
+ bezier point[2]: [31.191768646240234, 1.0, 0.0], [39.0, 1.0, 0.0], [46.808231353759766, 1.0, 0.0]
+ bezier point[3]: [51.201511383056641, 0.902069091796875, 0.0], [59.0, 0.70710688829421997, 0.0], [66.798492431640625, 0.51214468479156494, 0.0]
+ bezier point[4]: [79.0, 1.7881393432617188e-07, 0.0], [79.0, 1.7881393432617188e-07, 0.0], [79.0, 1.7881393432617188e-07, 0.0]
+          ch: roue2
+         ipo: [Ipo "ActIpo.001" (Action)]
+    ipo name: ActIpo.001
+    ipo prop: []
+    ipo type: <type 'Blender Ipo'>
+      ipo bt: Action/Pose
+      ipo ch: None
+      curves: 7
+
+      [curve: 0]
+            name: LocX
+           curve: [IpoCurve "LocX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 1]
+            name: LocY
+           curve: [IpoCurve "LocY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 2]
+            name: LocZ
+           curve: [IpoCurve "LocZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 3]
+            name: QuatW
+           curve: [IpoCurve "QuatW"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.416710376739502, 1.0, 0.0], [1.0, 1.0, 0.0], [8.4167098999023437, 1.0, 0.0]
+ bezier point[1]: [12.584817886352539, 0.86929452419281006, 0.0], [20.0, 0.67152106761932373, 0.0], [27.805454254150391, 0.46333849430084229, 0.0]
+ bezier point[2]: [32.196636199951172, 0.22604808211326599, 0.0], [40.0, -0.049568478018045425, 0.0], [47.803363800048828, -0.32518503069877625, 0.0]
+ bezier point[3]: [52.193973541259766, -0.55581390857696533, 0.0], [60.0, -0.74128776788711548, 0.0], [67.8060302734375, -0.92676162719726563, 0.0]
+ bezier point[4]: [72.192420959472656, -0.99998229742050171, 0.0], [80.0, -0.99998229742050171, 0.0], [87.807579040527344, -0.99998229742050171, 0.0]
+
+      [curve: 4]
+            name: QuatX
+           curve: [IpoCurve "QuatX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 4.2448414205864538e-07, 0.0], [20.0, 5.7265782515969477e-07, 0.0], [27.808229446411133, 7.2863014111135271e-07, 0.0]
+ bezier point[2]: [32.191768646240234, 7.6887499744771048e-07, 0.0], [40.0, 7.6887499744771048e-07, 0.0], [47.808231353759766, 7.6887499744771048e-07, 0.0]
+ bezier point[3]: [52.191768646240234, 6.6796519604395144e-07, 0.0], [60.0, 5.1687624136320665e-07, 0.0], [67.8082275390625, 3.6578728668246185e-07, 0.0]
+ bezier point[4]: [72.1917724609375, -5.1234723130733073e-09, 0.0], [80.0, -5.1234723130733073e-09, 0.0], [87.8082275390625, -5.1234723130733073e-09, 0.0]
+
+      [curve: 5]
+            name: QuatY
+           curve: [IpoCurve "QuatY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 1.7815379393937292e-08, 0.0], [20.0, 2.2225663087738212e-08, 0.0], [27.808229446411133, 2.6868066882457242e-08, 0.0]
+ bezier point[2]: [32.191768646240234, 2.6868066882457242e-08, 0.0], [40.0, 2.6868066882457242e-08, 0.0], [47.808231353759766, 2.6868066882457242e-08, 0.0]
+ bezier point[3]: [52.191768646240234, 2.3854077824125852e-08, 0.0], [60.0, 1.8827449821401387e-08, 0.0], [67.8082275390625, 1.3800821818676923e-08, 0.0]
+ bezier point[4]: [72.1917724609375, 1.1176553016412072e-09, 0.0], [80.0, 1.1176553016412072e-09, 0.0], [87.8082275390625, 1.1176553016412072e-09, 0.0]
+
+      [curve: 6]
+            name: QuatZ
+           curve: [IpoCurve "QuatZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.4121837615966797, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4121837615966797, 0.0, 0.0]
+ bezier point[1]: [12.584676742553711, -0.54860043525695801, 0.0], [20.0, -0.7409854531288147, 0.0], [27.80560302734375, -0.9434959888458252, 0.0]
+ bezier point[2]: [32.191783905029297, -0.99877077341079712, 0.0], [40.0, -0.99877077341079712, 0.0], [47.808216094970703, -0.99877077341079712, 0.0]
+ bezier point[3]: [52.194232940673828, -0.86725389957427979, 0.0], [60.0, -0.67118740081787109, 0.0], [67.805770874023437, -0.4751209020614624, 0.0]
+ bezier point[4]: [72.196243286132813, 0.0059554572217166424, 0.0], [80.0, 0.0059554572217166424, 0.0], [87.803756713867187, 0.0059554572217166424, 0.0]
+          ch: roue4
+         ipo: [Ipo "ActIpo.002" (Action)]
+    ipo name: ActIpo.002
+    ipo prop: []
+    ipo type: <type 'Blender Ipo'>
+      ipo bt: Action/Pose
+      ipo ch: None
+      curves: 7
+
+      [curve: 0]
+            name: LocX
+           curve: [IpoCurve "LocX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 1]
+            name: LocY
+           curve: [IpoCurve "LocY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 2]
+            name: LocZ
+           curve: [IpoCurve "LocZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 3]
+            name: QuatW
+           curve: [IpoCurve "QuatW"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.4169378280639648, 1.0, 0.0], [1.0, 1.0, 0.0], [8.4169378280639648, 1.0, 0.0]
+ bezier point[1]: [12.58457088470459, 0.89535033702850342, 0.0], [20.0, 0.7071068286895752, 0.0], [27.805713653564453, 0.50895577669143677, 0.0]
+ bezier point[2]: [32.196643829345703, 0.2758902907371521, 0.0], [40.0, 5.9604644775390625e-08, 0.0], [47.803356170654297, -0.27589017152786255, 0.0]
+ bezier point[3]: [52.194210052490234, -0.51196199655532837, 0.0], [60.0, -0.70710676908493042, 0.0], [67.805793762207031, -0.90225154161453247, 0.0]
+ bezier point[4]: [72.192604064941406, -1.0, 0.0], [80.0, -1.0, 0.0], [87.807395935058594, -1.0, 0.0]
+
+      [curve: 4]
+            name: QuatX
+           curve: [IpoCurve "QuatX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 9.5663539312340617e-09, 0.0], [20.0, 9.5663539312340617e-09, 0.0], [27.808229446411133, 9.5663539312340617e-09, 0.0]
+ bezier point[2]: [32.191768646240234, 1.0027365604514671e-09, 0.0], [40.0, -3.7739145142268171e-09, 0.0], [47.808231353759766, -8.5505655889051013e-09, 0.0]
+ bezier point[3]: [52.191768646240234, -1.2504166591043031e-08, 0.0], [60.0, -1.4903474010452555e-08, 0.0], [67.8082275390625, -1.730277965350524e-08, 0.0]
+ bezier point[4]: [72.1917724609375, -1.730277965350524e-08, 0.0], [80.0, -1.730277965350524e-08, 0.0], [87.8082275390625, -1.730277965350524e-08, 0.0]
+
+      [curve: 5]
+            name: QuatY
+           curve: [IpoCurve "QuatY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, -1.8070164031769309e-08, 0.0], [20.0, -2.9133456536101221e-08, 0.0], [27.808229446411133, -4.0779028154247499e-08, 0.0]
+ bezier point[2]: [32.191768646240234, -5.8124594914943373e-08, 0.0], [40.0, -5.8124594914943373e-08, 0.0], [47.808231353759766, -5.8124594914943373e-08, 0.0]
+ bezier point[3]: [52.191768646240234, -5.8124594914943373e-08, 0.0], [60.0, -5.3067132910200598e-08, 0.0], [67.8082275390625, -4.8009674458171503e-08, 0.0]
+ bezier point[4]: [72.1917724609375, -1.6923664247769921e-08, 0.0], [80.0, -1.6923664247769921e-08, 0.0], [87.8082275390625, -1.6923664247769921e-08, 0.0]
+
+      [curve: 6]
+            name: QuatZ
+           curve: [IpoCurve "QuatZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.4126873016357422, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4126873016357422, 0.0, 0.0]
+ bezier point[1]: [12.584674835205078, 0.51482439041137695, 0.0], [20.0, 0.70710676908493042, 0.0], [27.805606842041016, 0.90950930118560791, 0.0]
+ bezier point[2]: [32.191768646240234, 1.0, 0.0], [40.0, 1.0, 0.0], [47.808231353759766, 1.0, 0.0]
+ bezier point[3]: [52.194210052490234, 0.90225160121917725, 0.0], [60.0, 0.70710688829421997, 0.0], [67.805793762207031, 0.5119621753692627, 0.0]
+ bezier point[4]: [72.196647644042969, 1.1920927533992653e-07, 0.0], [80.0, 1.1920927533992653e-07, 0.0], [87.803352355957031, 1.1920927533992653e-07, 0.0]
+          ch: roue3
+         ipo: [Ipo "ActIpo.003" (Action)]
+    ipo name: ActIpo.003
+    ipo prop: []
+    ipo type: <type 'Blender Ipo'>
+      ipo bt: Action/Pose
+      ipo ch: None
+      curves: 7
+
+      [curve: 0]
+            name: LocX
+           curve: [IpoCurve "LocX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 1]
+            name: LocY
+           curve: [IpoCurve "LocY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 2]
+            name: LocZ
+           curve: [IpoCurve "LocZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, 0.0, 0.0], [20.0, 0.0, 0.0], [27.808229446411133, 0.0, 0.0]
+ bezier point[2]: [32.191768646240234, 0.0, 0.0], [40.0, 0.0, 0.0], [47.808231353759766, 0.0, 0.0]
+ bezier point[3]: [52.191768646240234, 0.0, 0.0], [60.0, 0.0, 0.0], [67.8082275390625, 0.0, 0.0]
+ bezier point[4]: [72.1917724609375, 0.0, 0.0], [80.0, 0.0, 0.0], [87.8082275390625, 0.0, 0.0]
+
+      [curve: 3]
+            name: QuatW
+           curve: [IpoCurve "QuatW"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.4169378280639648, 1.0, 0.0], [1.0, 1.0, 0.0], [8.4169378280639648, 1.0, 0.0]
+ bezier point[1]: [12.58457088470459, 0.89535033702850342, 0.0], [20.0, 0.70710676908493042, 0.0], [27.805713653564453, 0.50895571708679199, 0.0]
+ bezier point[2]: [32.196643829345703, 0.27589017152786255, 0.0], [40.0, -8.9406967163085938e-08, 0.0], [47.803356170654297, -0.27589035034179688, 0.0]
+ bezier point[3]: [52.194210052490234, -0.51196211576461792, 0.0], [60.0, -0.70710688829421997, 0.0], [67.805793762207031, -0.90225166082382202, 0.0]
+ bezier point[4]: [72.192604064941406, -1.0, 0.0], [80.0, -1.0, 0.0], [87.807395935058594, -1.0, 0.0]
+
+      [curve: 4]
+            name: QuatX
+           curve: [IpoCurve "QuatX"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, -8.2506403487059288e-08, 0.0], [20.0, -1.1333604277297127e-07, 0.0], [27.808229446411133, -1.4578830587197444e-07, 0.0]
+ bezier point[2]: [32.191768646240234, -1.6028135974011093e-07, 0.0], [40.0, -1.6028135974011093e-07, 0.0], [47.808231353759766, -1.6028135974011093e-07, 0.0]
+ bezier point[3]: [52.191768646240234, -1.4462386843661079e-07, 0.0], [60.0, -1.1333601435126184e-07, 0.0], [67.8082275390625, -8.2048167371340242e-08, 0.0]
+ bezier point[4]: [72.1917724609375, 2.8421709430404007e-14, 0.0], [80.0, 2.8421709430404007e-14, 0.0], [87.8082275390625, 2.8421709430404007e-14, 0.0]
+
+      [curve: 5]
+            name: QuatY
+           curve: [IpoCurve "QuatY"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.417818546295166, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4178180694580078, 0.0, 0.0]
+ bezier point[1]: [12.582181930541992, -9.7144933874915296e-08, 0.0], [20.0, -1.3344447324925568e-07, 0.0], [27.808229446411133, -1.7165450572065311e-07, 0.0]
+ bezier point[2]: [32.191768646240234, -1.8871898532779596e-07, 0.0], [40.0, -1.8871898532779596e-07, 0.0], [47.808231353759766, -1.8871898532779596e-07, 0.0]
+ bezier point[3]: [52.191768646240234, -1.7028349930114928e-07, 0.0], [60.0, -1.3344445903840096e-07, 0.0], [67.8082275390625, -9.6605418775652652e-08, 0.0]
+ bezier point[4]: [72.1917724609375, 2.8421709430404007e-14, 0.0], [80.0, 2.8421709430404007e-14, 0.0], [87.8082275390625, 2.8421709430404007e-14, 0.0]
+
+      [curve: 6]
+            name: QuatZ
+           curve: [IpoCurve "QuatZ"]
+          driver: 0
+         drv obj: None
+ bezier point[0]: [-6.4126873016357422, 0.0, 0.0], [1.0, 0.0, 0.0], [8.4126873016357422, 0.0, 0.0]
+ bezier point[1]: [12.584674835205078, 0.51482445001602173, 0.0], [20.0, 0.7071068286895752, 0.0], [27.805606842041016, 0.90950936079025269, 0.0]
+ bezier point[2]: [32.191768646240234, 1.0, 0.0], [40.0, 1.0, 0.0], [47.808231353759766, 1.0, 0.0]
+ bezier point[3]: [52.194210052490234, 0.9022514820098877, 0.0], [60.0, 0.70710670948028564, 0.0], [67.805793762207031, 0.51196193695068359, 0.0]
+ bezier point[4]: [72.196647644042969, -1.7881393432617188e-07, 0.0], [80.0, -1.7881393432617188e-07, 0.0], [87.803352355957031, -1.7881393432617188e-07, 0.0]
+
+[object info]
+Object (0): Name=Lamp.003, Type=Lamp, Layers=[2]
+Object (1): Name=Camera.002, Type=Camera, Layers=[2]
+Object (2): Name=Camera.001, Type=Camera, Layers=[1]
+Object (3): Name=Plane.001, Type=Mesh, Layers=[2]
+Object (4): Name=panneau, Type=Mesh, Layers=[1]
+Object (5): Name=chaine.001, Type=Mesh, Layers=[1]
+Object (6): Name=chaine, Type=Mesh, Layers=[1]
+Object (7): Name=Lamp.002, Type=Lamp, Layers=[1]
+Object (8): Name=pancarte, Type=Mesh, Layers=[1]
+Object (9): Name=pillier, Type=Mesh, Layers=[1]
+Object (10): Name=pillier.002, Type=Mesh, Layers=[1]
+Object (11): Name=panneau_bas, Type=Mesh, Layers=[1]
+Object (12): Name=sky_log, Type=Mesh, Layers=[1]
+Object (13): Name=sand, Type=Mesh, Layers=[1]
+Object (14): Name=Lamp, Type=Lamp, Layers=[1]
+Object (15): Name=acharn, Type=Mesh, Layers=[1]
+
+[Mesh - ob:panneau, me:panneau]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex.001
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_bois_mur_sup.
+org fullFileName: C:\Users\ecadic\log\tex\texture_bois_mur_sup.jpg
+fullFileName: C:\Users\ecadic\log\tex\texture_bois_mur_sup.jpg
+dirname: C:\Users\ecadic\log\tex
+fileName: texture_bois_mur_sup
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_bois_mur_sup.jpg
+result1: C:\Users\ecadic\log\tex\texture_bois_mur_sup.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:00100 : UVMaterial
+
+[Mesh - ob:chaine.001, me:chaine.001]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: texture_gravure.jpg
+org fullFileName: C:\Users\ecadic\log\tex\texture_gravure.jpg
+fullFileName: C:\Users\ecadic\log\tex\texture_gravure.jpg
+dirname: C:\Users\ecadic\log\tex
+fileName: texture_gravure
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\texture_gravure.jpg
+result1: C:\Users\ecadic\log\tex\texture_gravure.jpg
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.jpg:00100 : UVMaterial
+
+[Mesh - ob:chaine, me:chaine]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.jpg:00100 : UVMaterial
+
+[Mesh - ob:pancarte, me:pancarte]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:00100 : UVMaterial
+
+[Mesh - ob:pillier, me:pillier]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex.001
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:00100 : UVMaterial
+
+[Mesh - ob:pillier.002, me:pillier.002]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex.001
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:00100 : UVMaterial
+
+[Mesh - ob:panneau_bas, me:panneau_bas]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex.001
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_bois_mur_sup.:00100 : UVMaterial
+
+[Mesh - ob:sky_log, me:sky_log]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sandtest.jpg
+org fullFileName: C:\Users\ecadic\log\tex\sandtest.jpg
+fullFileName: C:\Users\ecadic\log\tex\sandtest.jpg
+dirname: C:\Users\ecadic\log\tex
+fileName: sandtest
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\sandtest.jpg
+result1: C:\Users\ecadic\log\tex\sandtest.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sandtest.jpg:00100 : UVMaterial
+
+[Mesh - ob:sand, me:sand]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Image]
+imageName: sand2.jpg
+org fullFileName: C:\Users\ecadic\log\tex\sand2.jpg
+fullFileName: C:\Users\ecadic\log\tex\sand2.jpg
+dirname: C:\Users\ecadic\log\tex
+fileName: sand2
+fileExt: .jpg
+bImage.depth: 24
+bImage.source: 1-still
+bImage.packed: 0
+bImage.lib: None
+exists on disk: 1
+result0: tex\sand2.jpg
+result1: C:\Users\ecadic\log\tex\sand2.jpg
+
+[Buffers]
+Count: 1
+   uvmat:sand2.jpg:00100 : UVMaterial
+
+[Mesh - ob:acharn, me:acharn]
+Restrict Display: False
+Restrict Render: False
+UV Layers (1): UVTex
+Primary UV Layer: None
+Double Sided: True
+Mesh VertexColors: False
+Mesh Key: None
+Mesh ipo: None
+Modifiers: None
+Armatures: None
+rbflags:14000
+pflags: ['PROP']
+isSoftBody: False
+
+[Buffers]
+Count: 1
+   uvmat:texture_gravure.jpg:00100 : UVMaterial
+
+[stats]
+Export Complete - 3.96 seconds - 21:53:52 09/08/10
+10 Object(s)
+10 Meshes
+2 Light(s)
+0 Image(s)
+8816/4408 Verts/Tris

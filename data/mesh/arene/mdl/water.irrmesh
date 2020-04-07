@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<mesh xmlns="http://irrlicht.sourceforge.net/IRRMESH_09_2007" version="1.0">
+<!-- Created 11/09/2010 15:35 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
+   <buffer>
+      <material bmat="uvmat:sky_log2.jpg.001:sky_log2.jpg.001:00100">
+         <enum name="Type" value="reflection_2layer"/>
+         <color name="Ambient" value="ffffffff"/>
+         <color name="Diffuse" value="ffffffff"/>
+         <color name="Emissive" value="ff000000"/>
+         <color name="Specular" value="ffffffff"/>
+         <float name="Shininess" value="0.000000"/>
+         <float name="Param1" value="0.000000"/>
+         <float name="Param2" value="0.000000"/>
+         <bool name="Wireframe" value="false"/>
+         <bool name="GouraudShading" value="true"/>
+         <bool name="Lighting" value="false"/>
+         <bool name="ZWriteEnable" value="true"/>
+         <int name="ZBuffer" value="1"/>
+         <bool name="BackfaceCulling" value="true"/>
+         <bool name="FrontfaceCulling" value="false"/>
+         <bool name="FogEnable" value="true"/>
+         <bool name="NormalizeNormals" value="false"/>
+         <int name="AntiAliasing" value="5"/>
+         <int name="ColorMask" value="15"/>
+         <texture name="Texture1" value="tex/sky_log2.jpg"/>
+         <enum name="TextureWrap1" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter1" value="true"/>
+         <bool name="TrilinearFilter1" value="false"/>
+         <int name="AnisotropicFilter1" value="0"/>
+         <int name="LODBias1" value="0"/>
+         <texture name="Texture2" value="tex/sky_log2.jpg"/>
+         <enum name="TextureWrap2" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter2" value="true"/>
+         <bool name="TrilinearFilter2" value="false"/>
+         <int name="AnisotropicFilter2" value="0"/>
+         <int name="LODBias2" value="0"/>
+         <texture name="Texture3" value=""/>
+         <enum name="TextureWrap3" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter3" value="true"/>
+         <bool name="TrilinearFilter3" value="false"/>
+         <int name="AnisotropicFilter3" value="0"/>
+         <int name="LODBias3" value="0"/>
+         <texture name="Texture4" value=""/>
+         <enum name="TextureWrap4" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter4" value="true"/>
+         <bool name="TrilinearFilter4" value="false"/>
+         <int name="AnisotropicFilter4" value="0"/>
+         <int name="LODBias4" value="0"/>
+      </material>
+      <vertices type="2tcoords" vertexCount="24">
+         12.878418 -0.966966 7.821234 0.577349 -0.577349 0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         12.878418 -0.966966 -5.151609 0.577349 -0.577349 -0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         -2.698213 -0.966966 -5.151609 -0.577349 -0.577349 -0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         -2.698213 -0.966966 7.821234 -0.577349 -0.577349 0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+         12.878418 2.061090 7.821233 0.577349 0.577349 0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         -2.698213 2.061090 7.821234 -0.577349 0.577349 0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         -2.698214 2.061090 -5.151609 -0.577349 0.577349 -0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         12.878416 2.061090 -5.151610 0.577349 0.577349 -0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+         12.878418 -0.966966 7.821234 0.577349 -0.577349 0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         12.878418 2.061090 7.821233 0.577349 0.577349 0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         12.878416 2.061090 -5.151610 0.577349 0.577349 -0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         12.878418 -0.966966 -5.151609 0.577349 -0.577349 -0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+         12.878418 -0.966966 -5.151609 0.577349 -0.577349 -0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         12.878416 2.061090 -5.151610 0.577349 0.577349 -0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         -2.698214 2.061090 -5.151609 -0.577349 0.577349 -0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         -2.698213 -0.966966 -5.151609 -0.577349 -0.577349 -0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+         -2.698213 -0.966966 -5.151609 -0.577349 -0.577349 -0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         -2.698214 2.061090 -5.151609 -0.577349 0.577349 -0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         -2.698213 2.061090 7.821234 -0.577349 0.577349 0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         -2.698213 -0.966966 7.821234 -0.577349 -0.577349 0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+         12.878418 2.061090 7.821233 0.577349 0.577349 0.577349 ffffffff -0.000000 0.000000 0.000000 1.000000
+         12.878418 -0.966966 7.821234 0.577349 -0.577349 0.577349 ffffffff 0.000000 1.000000 1.000000 1.000000
+         -2.698213 -0.966966 7.821234 -0.577349 -0.577349 0.577349 ffffffff 1.000000 1.000000 1.000000 0.000000
+         -2.698213 2.061090 7.821234 -0.577349 0.577349 0.577349 ffffffff 1.000000 0.000000 0.000000 0.000000
+      </vertices>
+      <indices indexCount="36">
+         2 1 0 2 0 3 6 5 4 6 4 7 10 9 8 10 8 11 14 13 12 14 12 15 18 17 16 18 16 19 22 21 20 22 20 23
+      </indices>
+   </buffer>
+</mesh>
