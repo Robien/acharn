@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<mesh xmlns="http://irrlicht.sourceforge.net/IRRMESH_09_2007" version="1.0">
+<!-- Created 11/09/2010 15:34 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
+   <buffer>
+      <material bmat="uvmat:texture_mur_bas.jpg:normal_mur_bas.jpg:00100">
+         <enum name="Type" value="normalmap_solid"/>
+         <color name="Ambient" value="ffffffff"/>
+         <color name="Diffuse" value="ffffffff"/>
+         <color name="Emissive" value="ff000000"/>
+         <color name="Specular" value="ffffffff"/>
+         <float name="Shininess" value="0.000000"/>
+         <float name="Param1" value="0.000000"/>
+         <float name="Param2" value="0.000000"/>
+         <bool name="Wireframe" value="false"/>
+         <bool name="GouraudShading" value="true"/>
+         <bool name="Lighting" value="false"/>
+         <bool name="ZWriteEnable" value="true"/>
+         <int name="ZBuffer" value="1"/>
+         <bool name="BackfaceCulling" value="true"/>
+         <bool name="FrontfaceCulling" value="false"/>
+         <bool name="FogEnable" value="false"/>
+         <bool name="NormalizeNormals" value="false"/>
+         <int name="AntiAliasing" value="5"/>
+         <int name="ColorMask" value="15"/>
+         <texture name="Texture1" value="tex/texture_mur_bas.jpg"/>
+         <enum name="TextureWrap1" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter1" value="true"/>
+         <bool name="TrilinearFilter1" value="false"/>
+         <int name="AnisotropicFilter1" value="0"/>
+         <int name="LODBias1" value="0"/>
+         <texture name="Texture2" value="tex/normal_mur_bas.jpg"/>
+         <enum name="TextureWrap2" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter2" value="true"/>
+         <bool name="TrilinearFilter2" value="false"/>
+         <int name="AnisotropicFilter2" value="0"/>
+         <int name="LODBias2" value="0"/>
+         <texture name="Texture3" value=""/>
+         <enum name="TextureWrap3" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter3" value="true"/>
+         <bool name="TrilinearFilter3" value="false"/>
+         <int name="AnisotropicFilter3" value="0"/>
+         <int name="LODBias3" value="0"/>
+         <texture name="Texture4" value=""/>
+         <enum name="TextureWrap4" value="texture_clamp_repeat"/>
+         <bool name="BilinearFilter4" value="true"/>
+         <bool name="TrilinearFilter4" value="false"/>
+         <int name="AnisotropicFilter4" value="0"/>
+         <int name="LODBias4" value="0"/>
+      </material>
+      <vertices type="tangents" vertexCount="4">
+         0.584840 -0.001784 1.415300 -0.923856 0.000000 0.382672 ffffffff 0.000000 0.000000 -0.382684 0.000000 -0.923879 0.000000 1.000000 0.000000
+         0.442821 -0.001784 1.072437 -0.923856 0.000000 0.382672 ffffffff -0.000000 1.000000 -0.382684 0.000000 -0.923879 0.000000 1.000000 0.000000
+         0.442821 0.233479 1.072437 -0.923856 0.000000 0.382672 ffffffff 1.000000 1.000000 -0.382684 0.000000 -0.923879 0.000000 1.000000 0.000000
+         0.584840 0.233479 1.415300 -0.923856 0.000000 0.382672 ffffffff 1.000000 0.000000 -0.382684 0.000000 -0.923879 0.000000 1.000000 0.000000
+      </vertices>
+      <indices indexCount="6">
+         2 1 0 2 0 3
+      </indices>
+   </buffer>
+</mesh>

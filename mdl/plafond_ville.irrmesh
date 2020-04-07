@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <mesh xmlns="http://irrlicht.sourceforge.net/IRRMESH_09_2007" version="1.0">
-<!-- Created 07/26/2010 13:18 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
+<!-- Created 11/09/2010 15:35 by irrb v0.4 - "Irrlicht/Blender Exporter" -->
    <buffer>
-      <material bmat="uvmat:sol_gravier.jpg.001:00100">
-         <enum name="Type" value="solid"/>
+      <material bmat="uvmat:texture_mur_bas.jpg:normal_plancher_g:00100">
+         <enum name="Type" value="normalmap_solid"/>
          <color name="Ambient" value="ffffffff"/>
          <color name="Diffuse" value="ffffffff"/>
          <color name="Emissive" value="ff000000"/>
@@ -18,17 +18,17 @@
          <int name="ZBuffer" value="1"/>
          <bool name="BackfaceCulling" value="true"/>
          <bool name="FrontfaceCulling" value="false"/>
-         <bool name="FogEnable" value="false"/>
+         <bool name="FogEnable" value="true"/>
          <bool name="NormalizeNormals" value="false"/>
          <int name="AntiAliasing" value="5"/>
          <int name="ColorMask" value="15"/>
-         <texture name="Texture1" value="tex/sol_gravier.jpg"/>
+         <texture name="Texture1" value="tex/texture_mur_bas.jpg"/>
          <enum name="TextureWrap1" value="texture_clamp_repeat"/>
          <bool name="BilinearFilter1" value="true"/>
          <bool name="TrilinearFilter1" value="false"/>
          <int name="AnisotropicFilter1" value="0"/>
          <int name="LODBias1" value="0"/>
-         <texture name="Texture2" value=""/>
+         <texture name="Texture2" value="tex/normal_plancher_gradins.jpg"/>
          <enum name="TextureWrap2" value="texture_clamp_repeat"/>
          <bool name="BilinearFilter2" value="true"/>
          <bool name="TrilinearFilter2" value="false"/>
@@ -47,11 +47,11 @@
          <int name="AnisotropicFilter4" value="0"/>
          <int name="LODBias4" value="0"/>
       </material>
-      <vertices type="standard" vertexCount="4">
-         1.000000 0.000000 0.716713 0.000000 -1.000000 0.000000 ffffffff 0.000000 1.000000 
-         1.000000 0.000000 -0.716713 0.000000 -1.000000 0.000000 ffffffff 1.000000 1.000000 
-         -1.000000 0.000000 -0.716712 0.000000 -1.000000 0.000000 ffffffff 1.000000 0.000000 
-         -1.000000 0.000000 0.716713 0.000000 -1.000000 0.000000 ffffffff 0.000000 0.000000 
+      <vertices type="tangents" vertexCount="4">
+         1.000000 0.000000 1.000000 0.000000 -1.000000 0.000000 ffffffff 0.000000 1.000000 0.000000 0.000000 1.000000 1.000000 0.000000 -0.000000
+         1.000000 0.000000 -1.000000 0.000000 -1.000000 0.000000 ffffffff 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 0.000000 -0.000000
+         -1.000000 0.000000 -1.000000 0.000000 -1.000000 0.000000 ffffffff 1.000000 0.000000 0.000000 0.000000 1.000000 1.000000 0.000000 -0.000000
+         -1.000000 0.000000 1.000000 0.000000 -1.000000 0.000000 ffffffff 1.000000 1.000000 0.000000 0.000000 1.000000 1.000000 0.000000 -0.000000
       </vertices>
       <indices indexCount="6">
          2 1 0 2 0 3
