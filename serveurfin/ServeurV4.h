@@ -16,13 +16,13 @@
 #include <map>
 #include <list>
 #include <time.h>
-#include <boost/asio.hpp>
+#include <asio.hpp>
 #include <thread>
 
 #include "SimpleIni.h"
 #include "Sauvegarde.h"
 
-using boost::asio::ip::udp;
+using asio::ip::udp;
 using namespace std;
 
 enum
@@ -40,7 +40,7 @@ struct clients
 class Serveur
 {
 public:
-	Serveur(boost::asio::io_service& io_service, short port);
+	Serveur(asio::io_service& io_service, short port);
 	virtual ~Serveur();
 	void ecoute();
 

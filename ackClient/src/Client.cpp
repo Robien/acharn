@@ -1,7 +1,7 @@
 #include "Client.h"
 
 using namespace std;
-using boost::asio::ip::udp;
+using asio::ip::udp;
 
 //ProtocoleV2//
 void* Client::recup(Client *cli)
@@ -12,7 +12,7 @@ void* Client::recup(Client *cli)
 		udp::socket* s = cli->getsocket();
 		char data[max_length];
 		udp::endpoint sender_endpoint;
-		std::size_t taille = s->receive_from(boost::asio::buffer(data, max_length), sender_endpoint);
+		std::size_t taille = s->receive_from(asio::buffer(data, max_length), sender_endpoint);
 		data[taille] = '\0';
 		cli->m_protocole->rcvData(data);
 		cli->fini = true;
@@ -53,7 +53,7 @@ Client::~Client()
 void Client::envoyer(const char* data)
 {
 	//size_t data_length = std::strlen(data);
-	m_socket->send_to(boost::asio::buffer(data, std::strlen(data)), *iterator);
+	m_socket->send_to(asio::buffer(data, std::strlen(data)), *iterator);
 }
 
 int Client::debRecep() // by Romain

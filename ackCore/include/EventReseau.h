@@ -13,7 +13,7 @@
 #include "Appli.h"
 #include "../include/Referenced.h"
 
-#include <boost/asio.hpp>
+#include <asio.hpp>
 
 class EventReseau: public Callback, public Referenced
 {

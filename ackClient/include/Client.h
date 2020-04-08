@@ -2,7 +2,7 @@
 #define DEF_CLIENT
 
 #include <iostream>
-#include <boost/asio.hpp>
+#include <asio.hpp>
 #include "AbstractProtocole.h"
 #include <irrlicht.h>
 #include "const.h"
@@ -11,7 +11,7 @@
 #include "PointeurIntelligent.h"
 
 using namespace std;
-using boost::asio::ip::udp;
+using asio::ip::udp;
 
 class Client
 {
@@ -70,7 +70,7 @@ private:
 
 	//AbstractProtocole* m_protocole; //ProtocoleV2//
 	PointeurIntelligent<AbstractProtocole> m_protocole; //ProtocoleV2//
-	boost::asio::io_service io_service; //service: io_service
+	asio::io_service io_service; //service: io_service
 	udp::socket* m_socket; //socket: s
 	udp::resolver* resolver;
 	udp::resolver::iterator iterator;

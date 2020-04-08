@@ -5,7 +5,7 @@
  *      Author: cephise
  */
 #include "ServeurV4.h"
-using boost::asio::ip::udp;
+using asio::ip::udp;
 using namespace std;
 int main(int argc, char* argv[])
 {
@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 			std::cerr << "Usage: ./serveur <port>\n";//on le traite de port
 			return 1;
 		}
-		boost::asio::io_service io_service;//creer le service udp
+		asio::io_service io_service;//creer le service udp
 		char buffertime[256];
 		time_t timestamp = time(NULL);
 		strftime(buffertime, sizeof(buffertime), "%d/%m/%Y - %X", localtime(&timestamp));

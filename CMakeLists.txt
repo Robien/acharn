@@ -28,24 +28,14 @@ find_package(Irrlicht)
 find_package(OpenAL)
 find_package(LibSndFile)
 find_package(OpenGL)
-
-#Inclusion de Boost
-include(FindBoost)
-find_package(
-	Boost
-	1.39.0
-	REQUIRED thread
-)
-
-link_directories(
-${Boost_LIBRARY_DIRS}
-)
+find_package (Threads REQUIRED)
 
 INCLUDE_DIRECTORIES(
    ${X11_INCLUDE_DIR}
    ${PROJECT_SOURCE_DIR}/include
    ${PROJECT_SOURCE_DIR}
-   ${Boost_INCLUDE_DIRS}
+   3rd/asio/asio/include/
+   3rd/boost_headers
    ${IRRLICHT_INCLUDE_DIR}
    ${OPENAL_INCLUDE_DIR}
    ${OPENGL_INCLUDE_DIRS}
@@ -79,8 +69,8 @@ ADD_EXECUTABLE(
 )
 
 TARGET_LINK_LIBRARIES(acharn
-   ${Boost_LIBRARIES}
 ${OPENAL_LIBRARY}
 ${IRRLICHT_LIBRARY}
 ${LIBSNDFILE_LIBRARY}
+${CMAKE_THREAD_LIBS_INIT}
 )

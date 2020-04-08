@@ -1,0 +1,6 @@
+[submodule "3rd/asio"]
+	path = 3rd/asio
+	url = https://github.com/chriskohlhoff/asio.git
+[submodule "3rd/smart_ptr"]
+	path = 3rd/smart_ptr
+	url = https://github.com/boostorg/smart_ptr.git

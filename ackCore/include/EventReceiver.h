@@ -19,7 +19,7 @@
  */
 #include <irrlicht.h>
 #include "Interface.h"
-#include <boost/asio.hpp>
+#include <asio.hpp>
 #include "../include/MainPerso.h"
 #include "Appli.h"
 #include "../include/PointeurIntelligent.h"
@@ -28,11 +28,12 @@ using namespace irr;
 using namespace std;
 using namespace gui;
 
-class EventReceiver: public IEventReceiver, public Referenced, boost::noncopyable
+class EventReceiver: public IEventReceiver, public Referenced
 {
 public:
 
 	EventReceiver(MainPerso & joueur, ackCore::Appli & app, Protocole* protocole);
+	EventReceiver(const EventReceiver&) = delete;
 
 	virtual bool OnEvent(const SEvent& event); //traite les évenements
 	void majCam(float delta); //met a jours la position de la camera

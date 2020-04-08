@@ -11,7 +11,7 @@
 #include <thread>
 using namespace std;
 
-Serveur::Serveur(boost::asio::io_service& io_service, short port) :
+Serveur::Serveur(asio::io_service& io_service, short port) :
     File(true, false, true), sock(io_service, udp::endpoint(udp::v4(), port)), backup(&File)
 {
     File.LoadFile("sauvegarde.dadu");
@@ -32,7 +32,7 @@ void Serveur::ecoute()
     {
         char data[max_length];
         udp::endpoint sender_endpoint;
-        size_t length = sock.receive_from(boost::asio::buffer(data, max_length), sender_endpoint);
+        size_t length = sock.receive_from(asio::buffer(data, max_length), sender_endpoint);
         data[length] = '\0';
 
         vector<std::string> donnee = split(data); //decoupage des données
@@ -50,7 +50,7 @@ void Serveur::ecoute()
                     {
                         if ((*it).first != source)
                         {
-                            sock.send_to(boost::asio::buffer(data, length), (*it).second.pt);//(on renvoi les même data)
+                            sock.send_to(asio::buffer(data, length), (*it).second.pt);//(on renvoi les même data)
                         }
                     }
 
@@ -58,7 +58,7 @@ void Serveur::ecoute()
                 else//un destinataire
                 {
                     map<int, clients>::iterator it = mapconnecte.find(destination);
-                    sock.send_to(boost::asio::buffer(data, length), (*it).second.pt);
+                    sock.send_to(asio::buffer(data, length), (*it).second.pt);
                 }
 
             }
@@ -74,7 +74,7 @@ void Serveur::ecoute()
                     {
                         int dest = converint(destinataire.at(i));
                         it = mapconnecte.find(dest);
-                        sock.send_to(boost::asio::buffer(data, length), (*it).second.pt);
+                        sock.send_to(asio::buffer(data, length), (*it).second.pt);
                     }
 
                 }
@@ -113,7 +113,7 @@ void Serveur::ecoute()
                 {
                     if ((*it).first != source)
                     {
-                        sock.send_to(boost::asio::buffer(answer, std::strlen(answer)), (*it).second.pt);
+                        sock.send_to(asio::buffer(answer, std::strlen(answer)), (*it).second.pt);
                     }
                 }
             }
@@ -137,7 +137,7 @@ void Serveur::ecoute()
                 chaine += etat;
 
                 const char* answer = chaine.c_str();
-                sock.send_to(boost::asio::buffer(answer, std::strlen(answer)), sender_endpoint);
+                sock.send_to(asio::buffer(answer, std::strlen(answer)), sender_endpoint);
 
             }
             //////////////////////////////////////message spécial: Getter etat      ////////////////////////////////////////////////
@@ -160,7 +160,7 @@ void Serveur::ecoute()
                 {
                     if ((*it).first != source)
                     {
-                        sock.send_to(boost::asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);
+                        sock.send_to(asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);
                     }
                 }
 
@@ -192,7 +192,7 @@ void Serveur::ecoute()
                         }
                         string chaine = "ve;" + converstr(idwhoisverif);
                         const char* newverif = chaine.c_str();
-                        sock.send_to(boost::asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
+                        sock.send_to(asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
                         (*it).second[0] = converstr(nb + 1)[0];
                         //ajouterErreur(pseudo???);
                     }
@@ -232,7 +232,7 @@ void Serveur::ecoute()
                         }
                         string chaine = "ve;" + converstr(idwhoisverif);
                         const char* newverif = chaine.c_str();
-                        sock.send_to(boost::asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
+                        sock.send_to(asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
                         (*it).second[0] = converstr(nb + 1)[0];
                         //ajouterErreur(pseudo???);
                     }
@@ -288,7 +288,7 @@ void Serveur::ecoute()
                     chaine += infojoueur;
 
                     const char* answer = chaine.c_str();
-                    sock.send_to(boost::asio::buffer(answer, std::strlen(answer)), sender_endpoint);
+                    sock.send_to(asio::buffer(answer, std::strlen(answer)), sender_endpoint);
 
                     //competence
                     if (!competences.empty())
@@ -300,7 +300,7 @@ void Serveur::ecoute()
                             chaine4 += "!" + competences[j];
                         }
                         const char* answer4 = chaine4.c_str();
-                        sock.send_to(boost::asio::buffer(answer4, std::strlen(answer4)), sender_endpoint);
+                        sock.send_to(asio::buffer(answer4, std::strlen(answer4)), sender_endpoint);
                     }
 
                     if (!sac.empty())
@@ -312,7 +312,7 @@ void Serveur::ecoute()
                             chaine4 += "!" + sac[j];
                         }
                         const char* answer4 = chaine4.c_str();
-                        sock.send_to(boost::asio::buffer(answer4, std::strlen(answer4)), sender_endpoint);
+                        sock.send_to(asio::buffer(answer4, std::strlen(answer4)), sender_endpoint);
                     }
 
                     //pour les autres joueur
@@ -327,7 +327,7 @@ void Serveur::ecoute()
                     {
                         if ((*it).first != newid)
                         {
-                            sock.send_to(boost::asio::buffer(answer2, std::strlen(answer2)), (*it).second.pt);
+                            sock.send_to(asio::buffer(answer2, std::strlen(answer2)), (*it).second.pt);
 
                             //on dit qui etait deja connecté avant son arrivée
                             string chaine3 = "cn;";
@@ -335,7 +335,7 @@ void Serveur::ecoute()
                             chaine3 += converstr((*it).second.initRand) + ";";
                             chaine3 += (*it).second.info;
                             const char* answer3 = chaine3.c_str();
-                            sock.send_to(boost::asio::buffer(answer3, std::strlen(answer3)), sender_endpoint);
+                            sock.send_to(asio::buffer(answer3, std::strlen(answer3)), sender_endpoint);
 
                             vector<string> inf = split((*it).second.info.c_str(), ',', false);
                             vector<string> textu = backup.recupTexture(inf[1]);
@@ -349,7 +349,7 @@ void Serveur::ecoute()
 				    }
 			    }
                             const char* answer5 = chaine5.c_str();
-                            sock.send_to(boost::asio::buffer(answer5, std::strlen(answer5)), sender_endpoint);
+                            sock.send_to(asio::buffer(answer5, std::strlen(answer5)), sender_endpoint);
                         }
                     }
 
@@ -364,7 +364,7 @@ void Serveur::ecoute()
                         const char* answer4 = chaine4.c_str();
                         for (map<int, clients>::iterator it = mapconnecte.begin(); it != mapconnecte.end(); it++)
                         {
-                            sock.send_to(boost::asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);//envoie a tous
+                            sock.send_to(asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);//envoie a tous
                         }
                     }
 
@@ -379,7 +379,7 @@ void Serveur::ecoute()
                         const char* answer4 = chaine4.c_str();
                         for (map<int, clients>::iterator it = mapconnecte.begin(); it != mapconnecte.end(); it++)
                         {
-                            sock.send_to(boost::asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);//envoie a tous
+                            sock.send_to(asio::buffer(answer4, std::strlen(answer4)), (*it).second.pt);//envoie a tous
                         }
                     }
 
@@ -398,7 +398,7 @@ void Serveur::ecoute()
                     string chaine5 = "cr;" + erreur;
 
                     const char* answer5 = chaine5.c_str();
-                    sock.send_to(boost::asio::buffer(answer5, std::strlen(answer5)), sender_endpoint);
+                    sock.send_to(asio::buffer(answer5, std::strlen(answer5)), sender_endpoint);
                 }
 
             }
@@ -424,7 +424,7 @@ void Serveur::ecoute()
                     chaine = "cv;" + erreur;
                 }
                 const char* answer = chaine.c_str();
-                sock.send_to(boost::asio::buffer(answer, std::strlen(answer)), sender_endpoint);
+                sock.send_to(asio::buffer(answer, std::strlen(answer)), sender_endpoint);
 
             }
             ////////////////////////////////////message special: concernant la déconnexion////////////////////////////////////
@@ -456,17 +456,17 @@ void Serveur::ecoute()
                         map<int, clients>::iterator iter = mapconnecte.begin();
                         string chaine = "vi;" + converstr(source);
                         const char* newverif = chaine.c_str();
-                        sock.send_to(boost::asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
+                        sock.send_to(asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
                         waitVerif.insert(pair<int, string> (source, '1' + donnee[2]));
                         chaine = "ve;" + converstr(source);
                         newverif = chaine.c_str();
-                        sock.send_to(boost::asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
+                        sock.send_to(asio::buffer(newverif, std::strlen(newverif)), (*iter).second.pt);//(on renvoi les même data)
                         waitVerifequi.insert(pair<int, string> (source, '1' + donnee[3]));
                     }
 
                     for (map<int, clients>::iterator it = mapconnecte.begin(); it != mapconnecte.end(); it++)
                     {
-                        sock.send_to(boost::asio::buffer(data, length), (*it).second.pt);//(même data)
+                        sock.send_to(asio::buffer(data, length), (*it).second.pt);//(même data)
                     }
 
                 }
