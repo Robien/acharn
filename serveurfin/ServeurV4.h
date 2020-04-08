@@ -59,8 +59,8 @@ protected:
 protected:
 	//fichier
 	//bool verifierConnexion(string pseudo, string pwd);
-	static void* sauvegardeTh(Sauvegarde& sauv, string info, string infoequi, string insac, string comp, string text);
-	static void* sauvegardeThtex(Sauvegarde& sauv, string pseudo, string text);
+	static void* sauvegardeTh(Sauvegarde* sauv, string info, string infoequi, string insac, string comp, string text);
+	static void* sauvegardeThtex(Sauvegarde* sauv, string pseudo, string text);
 private:
 	std::thread* ThreadSauv; //thread sauvegarde
 	//std::thread* ThreadAbs; //thread Absence

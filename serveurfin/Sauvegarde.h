@@ -11,8 +11,10 @@
 #include "SimpleIni.h"
 #include <iostream>
 #include <memory>
+#include <mutex>
 #include <vector>
 #include <string>
+
 using namespace std;
 class Sauvegarde
 {
@@ -37,7 +39,7 @@ private:
 	vector<std::string> split(const char* data, char separateur, bool conforme);
 
 private:
-	std::shared_ptr<boost::mutex> mutex;
+	std::shared_ptr<std::mutex> mutex;
     CSimpleIniCaseA* File;
 };
 

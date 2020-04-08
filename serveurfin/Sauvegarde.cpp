@@ -6,33 +6,37 @@
  */
 
 #include "Sauvegarde.h"
+#include <mutex>
+
 using namespace std;
 Sauvegarde::Sauvegarde()
 {
     // TODO Auto-generated constructor stub
-    mutex.reset(new boost::mutex);
+    mutex.reset(new std::mutex);
 
 }
 Sauvegarde::Sauvegarde(CSimpleIniCaseA* Filebackup)
 {
     // TODO Auto-generated constructor stub
     File = Filebackup;
-    mutex.reset(new boost::mutex);
+    mutex.reset(new std::mutex);
 }
 Sauvegarde::~Sauvegarde()
 {
     CSimpleIniCaseA::TNamesDepend listpersonnes;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         File->GetAllSections(listpersonnes);
+        mutex->unlock();
     }
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         CSimpleIniCaseA::TNamesDepend::iterator it;
         for (it = listpersonnes.begin(); it != listpersonnes.end(); it++)
         {
             File->SetBoolValue(it->pItem, "isconnect", false);
         }
+        mutex->unlock();
     }
     // TODO Auto-generated destructor stub
 }
@@ -45,14 +49,15 @@ string Sauvegarde::sauvegardeInfo(string info, string &pseudo)
     {
         int existe;
         {
-            boost::mutex::scoped_lock lock(*mutex.get());
+            mutex->lock();
             existe = File->GetSectionSize(infojoueur[1].c_str());
+            mutex->unlock();
         }
         if (existe != -1)//n'existe pas, sauvegarde possible
         {
             pseudo = infojoueur[1];
             {
-                boost::mutex::scoped_lock lock(*mutex.get());
+                mutex->lock();
                 File->SetValue(pseudo.c_str(), "PointExperience", infojoueur[0].c_str());
                 File->SetValue(pseudo.c_str(), "Vie", infojoueur[2].c_str());
                 File->SetValue(pseudo.c_str(), "VieMax", infojoueur[3].c_str());
@@ -70,6 +75,7 @@ string Sauvegarde::sauvegardeInfo(string info, string &pseudo)
                 File->SetValue(pseudo.c_str(), "Agilite", infojoueur[15].c_str());
                 File->SetBoolValue(pseudo.c_str(), "isconnect", false);
                 File->SaveFile("sauvegarde.dadu");
+                mutex->unlock();
             }
             cout << "-->Sauvegarde du personnage " <<pseudo << " reussi" << endl;
             return "";
@@ -90,7 +96,7 @@ string Sauvegarde::sauvegardeInfoCompetence(string comp, string pseudo)
 {
     string err = "";
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
 
         int existe = File->GetSectionSize(pseudo.c_str());
         if (existe != -1)//n'existe pas création possible
@@ -112,6 +118,7 @@ string Sauvegarde::sauvegardeInfoCompetence(string comp, string pseudo)
         {
             err = "Erreur: Sauvegarde impossible, login(" + pseudo + ") inexistant";
         }
+        mutex->lock();
     }
     return err;
 }
@@ -120,7 +127,7 @@ string Sauvegarde::sauvegardeInfoTexture(string text, string pseudo)
 {
     string err = "";
         {
-            boost::mutex::scoped_lock lock(*mutex.get());
+            mutex->lock();
             int existe = File->GetSectionSize(pseudo.c_str());
             if (existe != -1)//n'existe pas création possible
             {
@@ -136,6 +143,7 @@ string Sauvegarde::sauvegardeInfoTexture(string text, string pseudo)
                     File->SaveFile("sauvegarde.dadu");
                 }
 
+                mutex->unlock();
             }
             else
             {
@@ -149,7 +157,7 @@ string Sauvegarde::sauvegardeInfoObjetSac(string insac, string pseudo)
 {
     string err = "";
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->unlock();
         int existe = File->GetSectionSize(pseudo.c_str());
         if (existe != -1)//n'existe pas création possible
         {
@@ -170,6 +178,7 @@ string Sauvegarde::sauvegardeInfoObjetSac(string insac, string pseudo)
         {
             err = "Erreur: Sauvegarde impossible, login(" + pseudo + ") inexistant";
         }
+        mutex->unlock();
     }
     return err;
 }
@@ -178,7 +187,7 @@ string Sauvegarde::sauvegardeInfoObjetEquipement(string infoequi, string pseudo)
 {
     string err = "";
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         int existe = File->GetSectionSize(pseudo.c_str());
         if (existe != -1)//n'existe pas création possible
         {
@@ -198,6 +207,7 @@ string Sauvegarde::sauvegardeInfoObjetEquipement(string infoequi, string pseudo)
         {
             err = "Erreur: Sauvegarde impossible, login(" + pseudo + ") inexistant";
         }
+        mutex->unlock();
     }
     return err;
 }
@@ -239,7 +249,7 @@ string Sauvegarde::recupInfo(string pseudo)
 {
     string info = "";
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         int existe = File->GetSectionSize(pseudo.c_str());
         if (existe != -1)//n'existe pas création possible
         {
@@ -276,6 +286,7 @@ string Sauvegarde::recupInfo(string pseudo)
             info += mymm->find("Agilite")->second;
 
         }
+        mutex->unlock();
     }
     return info;
 }
@@ -284,8 +295,9 @@ vector<string> Sauvegarde::recupComp(string pseudo)
 {
     string competences;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         competences = File->GetValue(pseudo.c_str(), "Competences", "");
+        mutex->unlock();
     }
     vector<string> v_comp;
     if (competences != "")
@@ -302,8 +314,9 @@ vector<string> Sauvegarde::recupObjetSac(string pseudo)
 {
     string sac;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         sac = File->GetValue(pseudo.c_str(), "Sac", "");
+        mutex->unlock();
     }
     vector<string> v_sac;
     if (sac != "")
@@ -320,8 +333,9 @@ vector<string> Sauvegarde::recupObjetEquipement(string pseudo)
 {
     string equi;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         equi = File->GetValue(pseudo.c_str(), "Equipement", "");
+        mutex->unlock();
     }
     vector<string> v_equi;
     if (equi != "")
@@ -338,8 +352,9 @@ vector<string> Sauvegarde::recupTexture(string pseudo)
 {
     string tex;
        {
-           boost::mutex::scoped_lock lock(*mutex.get());
+            mutex->lock();
            tex = File->GetValue(pseudo.c_str(), "Texture", "");
+            mutex->unlock();
        }
        vector<string> v_tex;
        if (tex != "")
@@ -356,13 +371,14 @@ bool Sauvegarde::creerCompte(string pseudo, string pwd)
 {
     int existe;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         existe = File->GetSectionSize(pseudo.c_str());
+        mutex->unlock();
     }
     if (existe == -1)//n'existe pas création possible
     {
         {
-            boost::mutex::scoped_lock lock(*mutex.get());
+            mutex->lock();
             File->SetValue(pseudo.c_str(), "password", pwd.c_str());
             File->SetLongValue(pseudo.c_str(), "PointExperience", 0);
             File->SetLongValue(pseudo.c_str(), "Vie", 500);
@@ -381,6 +397,7 @@ bool Sauvegarde::creerCompte(string pseudo, string pwd)
             File->SetLongValue(pseudo.c_str(), "Inteligence", 23);
             File->SetBoolValue(pseudo.c_str(), "isconnect", false);
             File->SaveFile("sauvegarde.dadu");
+            mutex->lock();
         }
         return true;
     }
@@ -395,9 +412,10 @@ bool Sauvegarde::verifierConnexion(string pseudo, string pwd)
     bool isconnect = false;
     const char* mdp;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         isconnect = File->GetBoolValue(pseudo.c_str(), "isconnect", false);
         mdp = File->GetValue(pseudo.c_str(), "password");
+        mutex->unlock();
     }
     if (mdp != NULL)
     {
@@ -405,8 +423,9 @@ bool Sauvegarde::verifierConnexion(string pseudo, string pwd)
         if (!isconnect && pwd == mdpstring)
         {
             {
-                boost::mutex::scoped_lock lock(*mutex.get());
+                mutex->lock();
                 File->SetBoolValue(pseudo.c_str(), "isconnect", true);
+                mutex->unlock();
             }
             return true;
         }
@@ -425,13 +444,14 @@ void Sauvegarde::ajouterErreur(string pseudo)
 {
     int existe;
     {
-        boost::mutex::scoped_lock lock(*mutex.get());
+        mutex->lock();
         existe = File->GetSectionSize(pseudo.c_str());
         if (existe == -1)//n'existe pas création possible
         {
             File->SetLongValue(pseudo.c_str(), "Erreur", File->GetLongValue(pseudo.c_str(), "Erreur", 0) + 1);
         }
 
+        mutex->unlock();
     }
 
 }
