@@ -1,20 +1,14 @@
 #include "hasard.h"
-#include <boost/random.hpp>
-#include <ctime>
+
+#include <iostream>
+#include <random>
+
 
 int Random::generer(int min, int max)
 {
 
-//    boost::mt19937 rng;
- //   boost::uniform_int<> six(min, max);
- //   rng.seed(std::clock);
-  //  boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(rng, six);
-  //  return die();
-
-
-
-  std::time_t now = std::time(0);
-  boost::random::mt19937 gen{static_cast<std::uint32_t>(now)};
+  std::random_device rd;
+  std::mt19937 gen(rd());
 	int res = gen()%(max-min) + min;
 	return res;
 
@@ -29,16 +23,16 @@ int Random::genererParJoueur(int min, int max, int numero, int initialisateur) /
     {
         initialisateur = _init;
     }
-    boost::mt19937 rng;
+    std::mt19937 rng;
     int maxNombre = 300000000;
-    boost::uniform_int<> six(0, maxNombre);
+    std::uniform_int_distribution<> six(0, maxNombre);
     rng.seed(initialisateur);
-    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(rng, six);
+    std::uniform_int_distribution<unsigned int> dis;
     for (int i = 0; i < numero - 1; i++) //provisoire ....
     {
-        die();
+        dis(rng);
     }
-    return ((die() % (max - min)) + min);
+    return ((dis(rng) % (max - min)) + min);
 
 }
 Random::Random(int init)

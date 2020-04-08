@@ -7,6 +7,7 @@
 
 #include "ServeurV4.h"
 
+#include <random>
 #include <thread>
 using namespace std;
 
@@ -517,11 +518,10 @@ std::string Serveur::converstr(float nb)//convert en string un float
 
 int Serveur::random(int min, int max)
 {
-    boost::mt19937 rng;
-    boost::uniform_int<> six(min, max);
-    rng.seed(std::time(0));
-    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(rng, six);
-    return die();
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    int res = gen()%(max-min) + min;
+    return res;
 }
 
 int Serveur::nouveauId(list<int> &prochainid, int nb_personne_co)
