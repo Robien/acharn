@@ -11,8 +11,8 @@
 #include "Singleton.h"
 #include "Declencheurs.h"
 #include <vector>
-#include <boost/shared_ptr.hpp>
-#include <boost/thread/thread.hpp>
+#include <thread>
+#include <mutex>
 #include "../include/PointeurIntelligent.h"
 #include "../include/MainPerso.h"
 #include "../include/TacheStopAnim.h"
@@ -37,10 +37,10 @@ public:
 
 
 private:
-	boost::thread * threadDeclencheur;
+	std::thread * threadDeclencheur;
 	static void* lanceThread();
 	void addTache(Tache* tache);
-	boost::shared_ptr<boost::mutex> _mutexTache;
+	std::shared_ptr<std::mutex> _mutexTache;
 	std::vector<PointeurIntelligent<Declencheurs> > _declancheurs;
 	PointeurIntelligent<MainPerso> _joueur;
 	std::vector<PointeurIntelligent<Tache> > _aFaire;

@@ -7,12 +7,14 @@
 
 #include "../include/DeclencheursManager.h"
 #include <iostream>
+#include <thread>
+#include <mutex>
 
 DeclencheursManager::DeclencheursManager() :
     boutonActionAppuye(false)
 {
     init = false; // pour savoir si il a été initialisé
-    _mutexTache.reset(new boost::mutex);
+    _mutexTache.reset(new std::mutex);
 }
 void DeclencheursManager::setJoueur(MainPerso* joueur)
 {
@@ -21,7 +23,7 @@ void DeclencheursManager::setJoueur(MainPerso* joueur)
 }
 void DeclencheursManager::startDeclencheurs()
 {
-    threadDeclencheur = new boost::thread(&DeclencheursManager::lanceThread);
+    threadDeclencheur = new std::thread(&DeclencheursManager::lanceThread);
 }
 void DeclencheursManager::stopDeclencheurs()
 {
@@ -111,10 +113,9 @@ bool DeclencheursManager::majJoueur()
 
 void DeclencheursManager::addTache(Tache* tache)
 {
-    {
-        boost::mutex::scoped_lock lock(*_mutexTache.get());
-        _aFaire.push_back(tache);
-    }
+    _mutexTache.get()->lock();
+    _aFaire.push_back(tache);
+    _mutexTache.get()->unlock();
 
 }
 
