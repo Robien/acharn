@@ -60,7 +60,7 @@ int Client::debRecep() // by Romain
 {
 	_threadActif = true;
 	fini = false;
-	UnThread = new boost::thread(&Client::recup, this);
+	UnThread = new std::thread(&Client::recup, this);
 
 	return 0;
 }

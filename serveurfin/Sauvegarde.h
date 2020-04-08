@@ -10,7 +10,6 @@
 
 #include "SimpleIni.h"
 #include <boost/shared_ptr.hpp>
-#include <boost/thread/thread.hpp>
 #include <iostream>
 #include <vector>
 #include <string>

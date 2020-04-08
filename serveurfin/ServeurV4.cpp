@@ -7,6 +7,7 @@
 
 #include "ServeurV4.h"
 
+#include <thread>
 using namespace std;
 
 Serveur::Serveur(boost::asio::io_service& io_service, short port) :
@@ -147,7 +148,7 @@ void Serveur::ecoute()
                 map<int, clients>::iterator it = mapconnecte.find(source);
                 vector<string> info = split((*it).second.info.c_str(), ',', false);
                 string pseudo = info[1];
-                ThreadSauv = new boost::thread(&Serveur::sauvegardeThtex, backup, pseudo, donnee[2]);
+                ThreadSauv = new std::thread(&Serveur::sauvegardeThtex, backup, pseudo, donnee[2]);
                 //
 
                 string chaine4 = "ct;";
@@ -442,7 +443,7 @@ void Serveur::ecoute()
                     string infoequi = donnee[5];
                     string text = donnee[6];
 
-                    ThreadSauv = new boost::thread(&Serveur::sauvegardeTh, backup, info, infoequi, insac, comp, text);
+                    ThreadSauv = new std::thread(&Serveur::sauvegardeTh, backup, info, infoequi, insac, comp, text);
 
                     //prevenir les joueurs de la deconnexion
                     timestamp = time(NULL);

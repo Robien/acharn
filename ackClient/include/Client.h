@@ -6,7 +6,8 @@
 #include "AbstractProtocole.h"
 #include <irrlicht.h>
 #include "const.h"
-#include <boost/thread/thread.hpp>
+#include <thread>
+
 #include "PointeurIntelligent.h"
 
 using namespace std;
@@ -81,8 +82,8 @@ private:
 private:
 	//by Romain	
 	float m_tempsRestant;
-	boost::thread * UnThread;
-	//boost::thread * bt;
+	std::thread * UnThread;
+	//std::thread * bt;
 	std::string messageReception; // le message
 	int idMessage; // en cas de messages, de la part de qui ?
 	bool fini; // gestion du ping

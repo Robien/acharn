@@ -19,8 +19,8 @@
 #include <boost/random.hpp>
 #include <boost/asio.hpp>
 #include <boost/lexical_cast.hpp>
-#include <boost/thread/thread.hpp> //les threads
-#include <boost/shared_ptr.hpp> //les pointeurs intelligens
+#include <thread>
+
 #include "SimpleIni.h"
 #include "Sauvegarde.h"
 
@@ -62,8 +62,8 @@ protected:
 	static void* sauvegardeTh(Sauvegarde& sauv, string info, string infoequi, string insac, string comp, string text);
 	static void* sauvegardeThtex(Sauvegarde& sauv, string pseudo, string text);
 private:
-	boost::thread* ThreadSauv; //thread sauvegarde
-	//boost::thread* ThreadAbs; //thread Absence
+	std::thread* ThreadSauv; //thread sauvegarde
+	//std::thread* ThreadAbs; //thread Absence
 
 	Sauvegarde backup;
 	CSimpleIniCaseA File;

@@ -8,6 +8,7 @@
 #define FENEH 600
 #define FULL_SCREEN false
 
+#include <thread>
 #include "../include/Login.h"
 #include <memory>
 #include <iostream>
@@ -25,7 +26,7 @@ ackCore::Login::~Login()
 
 void ackCore::Login::chargement()
 {
-    _threadChargement = new boost::thread(&ackCore::Login::goTread, this);
+    _threadChargement = new std::thread(&ackCore::Login::goTread, this);
 
 }
 

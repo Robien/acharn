@@ -18,8 +18,9 @@
  * =====================================================================================
  */
 
-#include <boost/thread/thread.hpp>
-#include "boost/shared_ptr.hpp"
+#include <memory>
+#include <thread>
+
 #include "PersoManager.h"
 #include "Protocole.h"
 #include "../include/Referenced.h"
@@ -58,7 +59,7 @@ private:
     int _nbConnecte;
 
     static void majAll(Appli* app);
-    boost::shared_ptr<boost::thread> threadMaj;
+    std::shared_ptr<std::thread> threadMaj;
 
 };
 

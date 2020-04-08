@@ -19,13 +19,14 @@
 #include "Appli.h"
 #include "../include/Protocole.h"
 #include "boost/lexical_cast.hpp"
+#include <thread>
 
 void ackCore::Appli::nouveauJoueur(int id, irr::core::vector3df position, int init, std::string infoJoueur)
 {
     _nbConnecte++;
     if (_nbConnecte == 152385)//ho-ho, ça va lancer un thread qui va se teminer tout de suite si y'a 152 385 personnes qui se connecte a acharn en même temps !
     {
-        threadMaj.reset(new boost::thread(&Appli::majAll, this));
+        threadMaj.reset(new std::thread(&Appli::majAll, this));
     }
 
     PersoManager::get()->createPerso(id, position, init, infoJoueur);

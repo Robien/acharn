@@ -11,7 +11,6 @@
 #include "../include/TacheDestructionPerso.h"
 #include "../include/TacheSetAnime.h"
 
-#include <boost/thread/thread.hpp>
 #include "boost/lexical_cast.hpp"
 #include "../../ackTache/include/TacheModifTexture.h"
 
@@ -86,19 +85,21 @@ void PersoManager::addPersoByID(int id, PersoJoueur* perso)
 void PersoManager::maj()
 {
     {
-        boost::mutex::scoped_lock lock(*_mutexTache.get());
+        _mutexTache->lock();
         for (unsigned int i = 0; i < _aFaire.size(); ++i)
         {
             _aFaire[i]->execute();
         }
         _aFaire.clear();
+        _mutexTache->unlock();
     }
 }
 void PersoManager::addTache(Tache* tache)
 {
     {
-        boost::mutex::scoped_lock lock(*_mutexTache.get());
+        _mutexTache->lock();
         _aFaire.push_back(tache);
+        _mutexTache->unlock();
     }
 
 }

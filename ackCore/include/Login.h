@@ -9,7 +9,7 @@
 #define LOGIN_H_
 #include <irrlicht.h>
 #include "../include/Referenced.h"
-#include <boost/thread/thread.hpp>
+#include <thread>
 
 namespace ackCore
 {
@@ -24,7 +24,7 @@ public:
     irr::IrrlichtDevice* _device;
 private:
     static void* goTread(ackCore::Login* login);
-    boost::thread* _threadChargement;
+    std::thread* _threadChargement;
     irr::scene::IBillboardSceneNode* _bill;
     irr::scene::ICameraSceneNode* _camera;
 

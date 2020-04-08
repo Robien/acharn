@@ -18,8 +18,9 @@
 
 #include "irrlicht.h"
 
-#include <boost/thread/thread.hpp>
-#include <boost/shared_ptr.hpp>
+#include <memory>
+#include <mutex>
+
 #include "../include/MainPerso.h"
 
 class PersoManager : public Singleton<PersoManager>
@@ -29,7 +30,7 @@ public:
 	PersoManager()
 	{
 		_isDeviceDefine = false;
-		_mutexTache.reset(new boost::mutex);
+		_mutexTache.reset(new std::mutex);
 	}
 	virtual ~PersoManager()
 	{
@@ -59,7 +60,7 @@ public:
 
 private:
 
-	boost::shared_ptr<boost::mutex> _mutexTache;
+	std::shared_ptr<std::mutex> _mutexTache;
 	map<int,PointeurIntelligent<PersoJoueur> > _lesAutres; // les copains
 	irr::IrrlichtDevice*  _device;
 	bool _isDeviceDefine;
