@@ -19,7 +19,6 @@
  */
 #include <irrlicht.h>
 #include "Interface.h"
-#include "boost/shared_ptr.hpp"
 #include <boost/asio.hpp>
 #include "../include/MainPerso.h"
 #include "Appli.h"

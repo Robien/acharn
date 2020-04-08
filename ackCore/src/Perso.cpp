@@ -219,7 +219,7 @@ void Perso::afficher(float x, float y, float z, std::string pseudo, std::string 
     _node->setPosition(core::vector3df(x, y, z));
 
     //_node->getMaterial(0).NormalizeNormals = true;
-    //      boost::shared_ptr<scene::ITriangleSelector> selector(smgr->createTriangleSelector(node.get()));
+    //      std::shared_ptr<scene::ITriangleSelector> selector(smgr->createTriangleSelector(node.get()));
 
     _node->setID(IDFlag_IsPickable);
 
@@ -723,7 +723,7 @@ void Perso::addEpee()
     _nodeEpee = _device->getSceneManager()->addAnimatedMeshSceneNode(_device->getSceneManager()->getMesh("data/mesh/epee.b3d"), 0, ID_IsNotPickable);
     //_nodeEpee = _device->getSceneManager()->addAnimatedMeshSceneNode(_device->getSceneManager()->getMesh("data/mesh/batte.b3d"), 0, ID_IsNotPickable);
     //_node->getMaterial(0).NormalizeNormals = true;
-    //  boost::shared_ptr<scene::ITriangleSelector> selector(smgr->createTriangleSelector(node.get()));
+    //  std::shared_ptr<scene::ITriangleSelector> selector(smgr->createTriangleSelector(node.get()));
 
     _nodeEpee->setID(IDFlag_IsPickable);
 

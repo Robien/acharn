@@ -6,7 +6,6 @@
  */
 
 #include "../include/TacheCreationPerso.h"
-#include <boost/shared_ptr.hpp>
 #include "../include/Perso.h"
 #include "../include/PersoManager.h"
 #include "../../ackCore/include/EventIncantation.h"

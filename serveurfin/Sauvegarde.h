@@ -9,8 +9,8 @@
 #define SAUVEGARDE_H_
 
 #include "SimpleIni.h"
-#include <boost/shared_ptr.hpp>
 #include <iostream>
+#include <memory>
 #include <vector>
 #include <string>
 using namespace std;
@@ -37,7 +37,7 @@ private:
 	vector<std::string> split(const char* data, char separateur, bool conforme);
 
 private:
-	boost::shared_ptr<boost::mutex> mutex;
+	std::shared_ptr<boost::mutex> mutex;
     CSimpleIniCaseA* File;
 };
 
