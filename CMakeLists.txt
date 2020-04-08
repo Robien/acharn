@@ -34,7 +34,7 @@ include(FindBoost)
 find_package(
 	Boost
 	1.39.0
-	REQUIRED system filesystem thread
+	REQUIRED thread
 )
 
 link_directories(
@@ -83,5 +83,4 @@ TARGET_LINK_LIBRARIES(acharn
 ${OPENAL_LIBRARY}
 ${IRRLICHT_LIBRARY}
 ${LIBSNDFILE_LIBRARY}
-" -lGL -lXxf86vm -lXext -lX11"
 )
