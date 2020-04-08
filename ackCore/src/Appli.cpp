@@ -18,8 +18,8 @@
 
 #include "Appli.h"
 #include "../include/Protocole.h"
-#include "boost/lexical_cast.hpp"
 #include <memory>
+#include <string>
 #include <thread>
 
 void ackCore::Appli::nouveauJoueur(int id, irr::core::vector3df position, int init, std::string infoJoueur)
@@ -47,25 +47,25 @@ void ackCore::Appli::envoyerDeplacement(irr::core::vector3df position, irr::core
 {
     std::shared_ptr<std::vector<std::string> > message(new std::vector<std::string>);
     message->push_back("D");
-    message->push_back(boost::lexical_cast<std::string>((float) position.X));
-    message->push_back(boost::lexical_cast<std::string>((float) position.Y));
-    message->push_back(boost::lexical_cast<std::string>((float) position.Z));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.X));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.Y));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.Z));
+    message->push_back(std::to_string((float) position.X));
+    message->push_back(std::to_string((float) position.Y));
+    message->push_back(std::to_string((float) position.Z));
+    message->push_back(std::to_string((float) rot.X));
+    message->push_back(std::to_string((float) rot.Y));
+    message->push_back(std::to_string((float) rot.Z));
     protocole->envoyerMessage(message.get());
 }
 void ackCore::Appli::envoyerDeplacement(irr::core::vector3df position, irr::core::vector3df rot, Protocole* protocole, Perso::typeAnim typeAnim)
 {
     std::shared_ptr<std::vector<std::string> > message(new std::vector<std::string>);
     message->push_back("D");
-    message->push_back(boost::lexical_cast<std::string>((float) position.X));
-    message->push_back(boost::lexical_cast<std::string>((float) position.Y));
-    message->push_back(boost::lexical_cast<std::string>((float) position.Z));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.X));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.Y));
-    message->push_back(boost::lexical_cast<std::string>((float) rot.Z));
-    message->push_back(boost::lexical_cast<std::string>((int) typeAnim));
+    message->push_back(std::to_string((float) position.X));
+    message->push_back(std::to_string((float) position.Y));
+    message->push_back(std::to_string((float) position.Z));
+    message->push_back(std::to_string((float) rot.X));
+    message->push_back(std::to_string((float) rot.Y));
+    message->push_back(std::to_string((float) rot.Z));
+    message->push_back(std::to_string((int) typeAnim));
     protocole->envoyerMessage(message.get());
 }
 void ackCore::Appli::envoyerMessage(std::string mess, Protocole* protocole, int numero)
@@ -73,7 +73,7 @@ void ackCore::Appli::envoyerMessage(std::string mess, Protocole* protocole, int 
     std::shared_ptr<std::vector<std::string> > message(new std::vector<std::string>);
     message->push_back("M");
     message->push_back(mess);
-    message->push_back(boost::lexical_cast<std::string>(numero));
+    message->push_back(std::to_string(numero));
 
     protocole->envoyerMessage(message.get());
 }

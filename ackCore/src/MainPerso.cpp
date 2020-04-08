@@ -11,7 +11,6 @@
 #include "../../ackAudio/include/Son.h"
 #include "../../ackAudio/include/AudioManager.h"
 #include "../../ackAudio/include/Buffer.h"
-#include "boost/lexical_cast.hpp"
 #include "../include/MessageVie.h"
 #include "../../ackTache/include/TacheSetAttaque.h"
 
@@ -109,7 +108,7 @@ void MainPerso::appliqueVitesse(float delta)
                 }
                 if (degat != 0)
                 {
-                    PersoManager::get()->addTache(new TacheSetAttaque(0, "<#nom=\"Degat de chute\"#degat="+boost::lexical_cast<std::string> (degat)+">"));
+                    PersoManager::get()->addTache(new TacheSetAttaque(0, "<#nom=\"Degat de chute\"#degat="+ std::to_string(degat)+">"));
                 }
                 //TODO: mettre les déats de chutes
                 //                _interface.setVie(_interface.getVie() - degat);

@@ -6,7 +6,6 @@
  */
 
 #include "../include/EventReseau.h"
-#include "boost/lexical_cast.hpp"
 #include "../include/ObjetManager.h"
 
 EventReseau::EventReseau(ackCore::Appli* app) :
@@ -58,11 +57,11 @@ void EventReseau::recevoirMessage(vector<std::string> &message, int source)
     {
         if (message[0] == "D")
         {
-            _app->deplacerJoueur(source, irr::core::vector3df(boost::lexical_cast<float>(message[1]), boost::lexical_cast<float>(message[2]), boost::lexical_cast<float>(message[3])),
-                    irr::core::vector3df(boost::lexical_cast<float>(message[4]), boost::lexical_cast<float>(message[5]), boost::lexical_cast<float>(message[6])));
+            _app->deplacerJoueur(source, irr::core::vector3df(std::stof(message[1]), std::stof(message[2]), std::stof(message[3])),
+                    irr::core::vector3df(std::stof(message[4]), std::stof(message[5]), std::stof(message[6])));
             if (message.size() == 8)
             {
-                _app->setAnim(source, (Perso::typeAnim) (boost::lexical_cast<int>(message[7])));
+                _app->setAnim(source, (Perso::typeAnim) (std::stoi(message[7])));
             }
         }
         if (message[0] == "M")
@@ -70,9 +69,9 @@ void EventReseau::recevoirMessage(vector<std::string> &message, int source)
             if (message[1] == "/rand")
             {
                 Random* rand = PersoManager::get()->getPersoById(source)->getRandom();
-                int nb = rand->genererParJoueur(0, 100, (boost::lexical_cast<int>(message[2])));
-                std::string sourceSTR = boost::lexical_cast<std::string>(source);
-                _joueur->getInterface().recevoirMessageChat((sourceSTR) + ", entre 1 et 100, fait " + boost::lexical_cast<std::string>(nb));
+                int nb = rand->genererParJoueur(0, 100, (std::stoi(message[2])));
+                std::string sourceSTR = std::to_string(source);
+                _joueur->getInterface().recevoirMessageChat((sourceSTR) + ", entre 1 et 100, fait " + std::to_string(nb));
                 //ça peux segfault si y'a un /rand moins d'une frame après la connexion
             }
             else

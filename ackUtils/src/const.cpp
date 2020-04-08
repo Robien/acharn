@@ -16,28 +16,28 @@
  * =====================================================================================
  */
 #include "const.h"
-#include "boost/lexical_cast.hpp"
+#include <string>
 
 using namespace std;
 
 float converfl(string txt) //convert un string en float
 {
-    return boost::lexical_cast<float>(txt);
+    return std::stoi(txt);
 }
 
 int converint(string txt)//convert un string en int
 {
-    return boost::lexical_cast<int>(txt);
+    return std::stoi(txt);
 }
 
 std::string converstr(int nb)//convert en string un int
 {
-    return boost::lexical_cast<std::string>(nb);
+    return std::to_string(nb);
 }
 
 std::string converstr(float nb)//convert en string un float
 {
-    return boost::lexical_cast<std::string>(nb);
+    return std::to_string(nb);
 }
 
 vector<std::string> split(const char* data, char separateur)

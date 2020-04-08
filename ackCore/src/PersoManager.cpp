@@ -11,7 +11,6 @@
 #include "../include/TacheDestructionPerso.h"
 #include "../include/TacheSetAnime.h"
 
-#include "boost/lexical_cast.hpp"
 #include "../../ackTache/include/TacheModifTexture.h"
 
 PersoJoueur* PersoManager::newPerso(std::string infoPerso)// Pas thread safe !

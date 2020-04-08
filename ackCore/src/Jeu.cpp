@@ -21,7 +21,6 @@
 #include "../../ackAudio/include/AudioManager.h"
 #include "../../ackUtils/include/SequenceAleatoire.h"
 #include "../include/EventIncantation.h"
-#include "boost/lexical_cast.hpp"
 #include "../include/MessageManager.h"
 
 //réseau -> frequence d'envois des coordonnée

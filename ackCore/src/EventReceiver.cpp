@@ -20,7 +20,6 @@
 #include "AudioManager.h"
 #include "EventReceiver.h"
 #include <math.h>
-#include "boost/lexical_cast.hpp"
 #include <irrlicht.h>
 #include "../include/DeclencheursManager.h"
 #define ANGLE_MAX_CAMERA 155
@@ -115,7 +114,7 @@ bool EventReceiver::OnEvent(const SEvent& event)
                         if (msg == "/rand")
                         {
                             _app.envoyerMessage(msg, _protocole, _joueur.getRandom()->getNumero() + 1);
-                            _joueur.getInterface().recevoirMessageChat("vous faites un " + boost::lexical_cast<std::string>(_joueur.getRandom()->genererParJoueur(0, 100)));
+                            _joueur.getInterface().recevoirMessageChat("vous faites un " + std::to_string(_joueur.getRandom()->genererParJoueur(0, 100)));
                         }
                         else if (msg == "/demo")
                         {
@@ -375,7 +374,7 @@ bool EventReceiver::OnEvent(const SEvent& event)
                         if (msg == "/rand")
                         {
                             _app.envoyerMessage(msg, _protocole, _joueur.getRandom()->getNumero() + 1);
-                            _joueur.getInterface().recevoirMessageChat("vous faites un " + boost::lexical_cast<std::string>(_joueur.getRandom()->genererParJoueur(0, 100)));
+                            _joueur.getInterface().recevoirMessageChat("vous faites un " + std::to_string(_joueur.getRandom()->genererParJoueur(0, 100)));
                         }
                         else if (msg == "/demo")
                         {

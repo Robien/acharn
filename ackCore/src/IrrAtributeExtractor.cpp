@@ -14,7 +14,6 @@
 #include "../include/Animation.h"
 #include "../include/SuiteAnimations.h"
 #include "../include/ObjetManager.h"
-#include "boost/lexical_cast.hpp"
 
 ackCore::IrrAtributeExtractor::IrrAtributeExtractor(Jeu* jeu) :
     irr::scene::ISceneUserDataSerializer(), _jeu(jeu)
@@ -89,9 +88,9 @@ void ackCore::IrrAtributeExtractor::OnReadUserData(irr::scene::ISceneNode* forSc
         objet->setSuiteAnimation(animAscenseur);
 
         int i = 0;
-        while (userData->existsAttribute(boost::lexical_cast<std::string>(i).c_str()))
+        while (userData->existsAttribute(std::to_string(i).c_str()))
         {
-            objet->addEtat(i, new EtatObjet(userData->getAttributeAsInt(boost::lexical_cast<std::string>(i).c_str())));
+            objet->addEtat(i, new EtatObjet(userData->getAttributeAsInt(std::to_string(i).c_str())));
             ++i;
         }
     }

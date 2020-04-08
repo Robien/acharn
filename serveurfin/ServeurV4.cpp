@@ -497,22 +497,22 @@ void Serveur::ecoute()
 
 float Serveur::converfl(string txt) //convert un string en float
 {
-    return boost::lexical_cast<float>(txt);
+    return std::stof(txt);
 }
 
 int Serveur::converint(string txt)//convert un string en int
 {
-    return boost::lexical_cast<int>(txt);
+    return std::stoi(txt);
 }
 
 std::string Serveur::converstr(int nb)//convert en string un int
 {
-    return boost::lexical_cast<std::string>(nb);
+    return std::to_string(nb);
 }
 
 std::string Serveur::converstr(float nb)//convert en string un float
 {
-    return boost::lexical_cast<std::string>(nb);
+    return std::to_string(nb);
 }
 
 int Serveur::random(int min, int max)

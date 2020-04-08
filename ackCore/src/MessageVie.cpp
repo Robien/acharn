@@ -6,7 +6,6 @@
  */
 
 #include "../include/MessageVie.h"
-#include "boost/lexical_cast.hpp"
 #include "../include/MessageManager.h"
 
 MessageVie::MessageVie(irr::core::vector3df position, irr::IrrlichtDevice* device, float quantite, MessageVie::typeMessage type)
@@ -15,7 +14,7 @@ MessageVie::MessageVie(irr::core::vector3df position, irr::IrrlichtDevice* devic
     if (type == MessageVie::PERTEVIE)
     {
         std::string degat;
-        degat = boost::lexical_cast<std::string>(floor(quantite));
+        degat = std::to_string(floor(quantite));
         degat = "-" + degat;
         wchar_t message[100];
         mbstowcs(message, degat.c_str(), strlen(degat.c_str()) + 1);
@@ -25,7 +24,7 @@ MessageVie::MessageVie(irr::core::vector3df position, irr::IrrlichtDevice* devic
     else if (type == MessageVie::GAINVIE)
     {
         std::string degat;
-        degat = boost::lexical_cast<std::string>(floor(quantite));
+        degat = std::to_string(floor(quantite));
         degat = "+" + degat;
         wchar_t message[100];
         mbstowcs(message, degat.c_str(), strlen(degat.c_str()) + 1);
@@ -35,7 +34,7 @@ MessageVie::MessageVie(irr::core::vector3df position, irr::IrrlichtDevice* devic
     else if (type == MessageVie::GAINXP)
     {
         std::string degat;
-        degat = boost::lexical_cast<std::string>(floor(quantite));
+        degat = std::to_string(floor(quantite));
         degat = "+" + degat;
         wchar_t message[100];
         mbstowcs(message, degat.c_str(), strlen(degat.c_str()) + 1);

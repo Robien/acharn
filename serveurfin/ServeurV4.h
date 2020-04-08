@@ -18,7 +18,6 @@
 #include <time.h>
 #include <boost/random.hpp>
 #include <boost/asio.hpp>
-#include <boost/lexical_cast.hpp>
 #include <thread>
 
 #include "SimpleIni.h"
