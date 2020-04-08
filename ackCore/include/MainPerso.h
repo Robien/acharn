@@ -11,7 +11,6 @@
 #include "PersoJoueur.h"
 #include "Interface.h"
 #include <irrlicht.h>
-#include <boost/noncopyable.hpp>
 #include "../include/EventInfoPerso.h"
 
 class MainPerso: public PersoJoueur
