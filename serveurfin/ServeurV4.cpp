@@ -5,6 +5,8 @@
  *      Author: cephise
  */
 
+#include <functional>
+
 #include "ServeurV4.h"
 
 #include <random>
