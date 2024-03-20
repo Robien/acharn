@@ -8,6 +8,8 @@
 #ifndef POINTEURINTELLIGENT_H_
 #define POINTEURINTELLIGENT_H_
 
+#include <memory>
+
 #include <boost/intrusive_ptr.hpp>
 template<class T>
 class PointeurIntelligent: public boost::intrusive_ptr<T>
